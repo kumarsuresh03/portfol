@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'master', url: 'https://github.com/yourusername/yourrepo.git'
+                git branch: 'master', url: 'https://github.com/kumarsuresh03/portfol.git'
             }
         }
 
@@ -16,8 +16,8 @@ pipeline {
                 script {
                     sh '''
                     sonar-scanner \
-                    -Dsonar.projectKey=your_project_key \
-                    -Dsonar.organization=your_organization \
+                    -Dsonar.projectKey=kumarsuresh03_CA3 \
+                    -Dsonar.organization=kumarsuresh03 \
                     -Dsonar.sources=. \
                     -Dsonar.host.url=https://sonarcloud.io \
                     -Dsonar.login=$SONAR_TOKEN
@@ -29,7 +29,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t yourusername/yourimage:latest .'
+                    sh 'docker build -t sureshnangina/devsecops:latest .'
                 }
             }
         }
@@ -50,19 +50,12 @@ pipeline {
                 script {
                     sh '''
                     echo $DOCKER_HUB_CREDENTIALS | docker login -u yourusername --password-stdin
-                    docker push yourusername/yourimage:latest
+                    docker push sureshnangina/devsecops:latest
                     '''
                 }
             }
         }
 
-        stage('Deploy to AWS') {
-            steps {
-                script {
-                    // Using ECS CLI or Kubernetes for deployment, for example:
-                    sh 'aws ecs update-service --cluster your-cluster --service your-service --force-new-deployment'
-                }
-            }
-        }
+
     }
 }
