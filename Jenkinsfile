@@ -3,7 +3,7 @@ pipeline {
     environment {
         dockerRegistry = "https://index.docker.io/v1/"
         dockerCreds = credentials('dockerhub-credentials')  // Your Docker Hub credentials
-        nginxImage = 'devsecops'
+        nginxImage = 'practical'
     }
     stages {
         stage('Checkout Code') {
@@ -25,7 +25,7 @@ pipeline {
                 script {
                     def nginxPath = "." // Path to the current directory containing your Dockerfile
                     def dockerfileNginx = "Dockerfile" // Dockerfile path in the root directory
-                    bat "docker build -f ${dockerfileNginx} -t sureshnangina/devsecops:latest ${nginxPath}"
+                    bat "docker build -f ${dockerfileNginx} -t sureshnangina/practical:devsecops ${nginxPath}"
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
                 script {
                     docker.withRegistry(dockerRegistry, 'dockerhub-credentials') {
                         echo "Pushing NGINX image to Docker Hub"
-                        bat "docker push sureshnangina/devsecops:latest"
+                        bat "docker push sureshnangina/practical:devsecops"
                     }
                 }
             }
