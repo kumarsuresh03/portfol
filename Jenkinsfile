@@ -3,7 +3,7 @@ pipeline {
     environment {
         dockerRegistry = "https://index.docker.io/v1/"
         dockerCreds = credentials('dockerhub-credentials')  // Your Docker Hub credentials
-        nginxImage = 'nginx-image'
+        nginxImage = 'devsecops'
     }
     stages {
         stage('Checkout Code') {
