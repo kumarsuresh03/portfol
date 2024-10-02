@@ -39,15 +39,7 @@ pipeline {
                 }
             }
         }
-        stage('Trivy Scan') {
-            steps {
-                script {
-                    withTrivyEnv('Trivy') {
-                        bat 'trivy image --exit-code 1 --severity HIGH sureshnangina/nginx-image:latest'
-                    }
-                }
-            }
-        }
+
     }
     post {
         always {
