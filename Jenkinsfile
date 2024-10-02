@@ -23,8 +23,8 @@ pipeline {
         stage('Build NGINX Image') {
             steps {
                 script {
-                    def nginxPath = "portfol" // Update this path to the directory containing your Dockerfile
-                    def dockerfileNginx = "portfol"/Dockerfile" // Dockerfile path
+                    def nginxPath = "." // Path to the current directory containing your Dockerfile
+                    def dockerfileNginx = "Dockerfile" // Dockerfile path in the root directory
                     bat "docker build -f ${dockerfileNginx} -t sureshnangina/nginx-image:latest ${nginxPath}"
                 }
             }
