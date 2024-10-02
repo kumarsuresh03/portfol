@@ -11,8 +11,7 @@ pipeline {
                 bat 'docker build -t sureshnangina/devsecops:latest .'
             }
         }
-
-           stage('Push to Docker Hub') {
+        stage('Push to Docker Hub') {
             environment {
                 DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
             }
@@ -23,12 +22,10 @@ pipeline {
                 }
             }
         }
-       stage('Trivy Scan') {
+        stage('Trivy Scan') {
             steps {
                 bat 'C:\\Windows\\System32\\cmd.exe /c C:\\path\\to\\trivy.exe image --exit-code 1 --severity HIGH sureshnangina/devsecops:latest'
             }
         }
-        
-
     }
 }
