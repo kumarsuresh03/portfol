@@ -14,13 +14,14 @@ pipeline {
             }
             steps {
                 script {
-                    sh '''
-                    sonar-scanner \
-                    -Dsonar.projectKey=kumarsuresh03_CA3 \
-                    -Dsonar.organization=kumarsuresh03 \
-                    -Dsonar.sources=. \
-                    -Dsonar.host.url=https://sonarcloud.io \
-                    -Dsonar.login=$SONAR_TOKEN
+                    // Use 'bat' for Windows compatibility
+                    bat '''
+                    sonar-scanner.bat ^
+                    -Dsonar.projectKey=kumarsuresh03_CA3 ^
+                    -Dsonar.organization=kumarsuresh03 ^
+                    -Dsonar.sources=. ^
+                    -Dsonar.host.url=https://sonarcloud.io ^
+                    -Dsonar.login=%SONAR_TOKEN%
                     '''
                 }
             }
@@ -29,7 +30,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t sureshnangina/devsecops:latest .'
+                    // Use 'bat' for Docker build command on Windows
+                    bat 'docker build -t sureshnangina/devsecops:latest .'
                 }
             }
         }
@@ -37,7 +39,8 @@ pipeline {
         stage('Trivy Scan') {
             steps {
                 script {
-                    sh 'trivy image --exit-code 1 --severity HIGH yourusername/yourimage:latest'
+                    // Use 'bat' for Trivy scan command on Windows
+                    bat 'trivy image --exit-code 1 --severity HIGH sureshnangina/devsecops:latest'
                 }
             }
         }
@@ -48,14 +51,13 @@ pipeline {
             }
             steps {
                 script {
-                    sh '''
-                    echo $DOCKER_HUB_CREDENTIALS | docker login -u yourusername --password-stdin
+                    // Use 'bat' for Docker login and push commands on Windows
+                    bat '''
+                    echo %DOCKER_HUB_CREDENTIALS% | docker login -u yourusername --password-stdin
                     docker push sureshnangina/devsecops:latest
                     '''
                 }
             }
         }
-
-
     }
 }
