@@ -25,7 +25,7 @@ pipeline {
                 script {
                     def nginxPath = "." // Path to the current directory containing your Dockerfile
                     def dockerfileNginx = "Dockerfile" // Dockerfile path in the root directory
-                    bat "docker build -f ${dockerfileNginx} -t sureshnangina/nginx-image:latest ${nginxPath}"
+                    bat "docker build -f ${dockerfileNginx} -t sureshnangina/devsecops:latest ${nginxPath}"
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
                 script {
                     docker.withRegistry(dockerRegistry, 'dockerhub-credentials') {
                         echo "Pushing NGINX image to Docker Hub"
-                        bat "docker push sureshnangina/nginx-image:latest"
+                        bat "docker push sureshnangina/devsecops:latest"
                     }
                 }
             }
