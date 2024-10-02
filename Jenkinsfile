@@ -6,21 +6,6 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/kumarsuresh03/portfol.git'
             }
         }
-        stage('SonarCloud Analysis') {
-            environment {
-                SONAR_TOKEN = credentials('sonarcloud-token')
-            }
-            steps {
-                bat '''
-                sonar-scanner.bat ^
-                -Dsonar.projectKey=kumarsuresh03_CA3 ^
-                -Dsonar.organization=kumarsuresh03 ^
-                -Dsonar.sources=. ^
-                -Dsonar.host.url=https://sonarcloud.io ^
-                -Dsonar.login=%SONAR_TOKEN%
-                '''
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 bat 'docker build -t sureshnangina/devsecops:latest .'
