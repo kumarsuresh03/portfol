@@ -1,31 +1,51 @@
 pipeline {
     agent any
+    environment {
+        dockerRegistry = "https://index.docker.io/v1/"
+        dockerCreds = credentials('dockerhub-credentials')  // Your Docker Hub credentials
+        nginxImage = 'nginx-image'
+    }
     stages {
         stage('Checkout Code') {
             steps {
                 git branch: 'master', url: 'https://github.com/kumarsuresh03/portfol.git'
             }
         }
-        stage('Build Docker Image') {
+        stage('Login to Docker Hub') {
             steps {
-                bat 'docker build -t sureshnangina/devsecops:latest .'
-            }
-        }
-        stage('Push to Docker Hub') {
-            environment {
-                DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
-            }
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    bat 'echo %DOCKER_PASSWORD% | docker login -u %DOCKER_USERNAME% --password-stdin'
-                    bat 'docker push sureshnangina/devsecops:latest'
+                script {
+                    docker.withRegistry(dockerRegistry, 'dockerhub-credentials') {
+                        echo "Logged in to Docker Hub"
+                    }
                 }
             }
         }
-        stage('Trivy Scan') {
+        stage('Build NGINX Image') {
             steps {
-                bat 'C:\\Windows\\System32\\cmd.exe /c C:\\path\\to\\trivy.exe image --exit-code 1 --severity HIGH sureshnangina/devsecops:latest'
+                script {
+                    def nginxPath = "portfol" // Update this path to the directory containing your Dockerfile
+                    def dockerfileNginx = "portfol/Dockerfile" // Dockerfile path
+                    bat "docker build -f ${dockerfileNginx} -t sureshnangina/nginx-image:latest ${nginxPath}"
+                }
             }
+        }
+        stage('Push NGINX Image') {
+            steps {
+                script {
+                    docker.withRegistry(dockerRegistry, 'dockerhub-credentials') {
+                        echo "Pushing NGINX image to Docker Hub"
+                        bat "docker push sureshnangina/nginx-image:latest"
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline completed'
+        }
+        failure {
+            echo 'Pipeline failed'
         }
     }
 }
