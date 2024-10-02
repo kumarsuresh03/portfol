@@ -1,0 +1,68 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'master', url: 'https://github.com/yourusername/yourrepo.git'
+            }
+        }
+
+        stage('SonarCloud Analysis') {
+            environment {
+                SONAR_TOKEN = credentials('sonarcloud-token')
+            }
+            steps {
+                script {
+                    sh '''
+                    sonar-scanner \
+                    -Dsonar.projectKey=your_project_key \
+                    -Dsonar.organization=your_organization \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=https://sonarcloud.io \
+                    -Dsonar.login=$SONAR_TOKEN
+                    '''
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'docker build -t yourusername/yourimage:latest .'
+                }
+            }
+        }
+
+        stage('Trivy Scan') {
+            steps {
+                script {
+                    sh 'trivy image --exit-code 1 --severity HIGH yourusername/yourimage:latest'
+                }
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            environment {
+                DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
+            }
+            steps {
+                script {
+                    sh '''
+                    echo $DOCKER_HUB_CREDENTIALS | docker login -u yourusername --password-stdin
+                    docker push yourusername/yourimage:latest
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy to AWS') {
+            steps {
+                script {
+                    // Using ECS CLI or Kubernetes for deployment, for example:
+                    sh 'aws ecs update-service --cluster your-cluster --service your-service --force-new-deployment'
+                }
+            }
+        }
+    }
+}
