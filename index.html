@@ -1,156 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps & Cloud Engineer Portfolio</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fa;
-            color: #333;
-        }
-        header, footer {
-            background-color: #1f2937;
-            color: #fff;
-            padding: 20px 10px;
-            text-align: center;
-        }
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 30px 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        h2 {
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
-        h3 {
-            color: #1f2937;
-            margin-top: 25px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .section-title {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: #111827;
-        }
-        a {
-            color: #1d4ed8;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .role-title {
-            font-weight: bold;
-            font-size: 1.1em;
-            color: #374151;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DevOps & Cloud Engineer Portfolio</title>
+  <style>
+    /* Base styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fa;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header,
+    footer {
+      background-color: #1f2937;
+      color: #fff;
+      padding: 20px 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated heading underline */
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    header h1::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #4f46e5, #3b82f6, #06b6d4);
+      border-radius: 2px;
+      animation: slide-in 2s ease forwards;
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+
+    @keyframes slide-in {
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    header p {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #9ca3af;
+      margin-top: 5px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px;
+      background-color: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    /* Fade-in animation for container */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 8px;
+      margin-top: 40px;
+      color: #1f2937;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    /* Animated horizontal rule (hr) */
+    hr {
+      border: 0;
+      height: 4px;
+      background: linear-gradient(
+        270deg,
+        #4f46e5,
+        #3b82f6,
+        #06b6d4,
+        #3b82f6,
+        #4f46e5
+      );
+      background-size: 600% 600%;
+      animation: gradientShift 8s ease infinite;
+      border-radius: 4px;
+      margin: 25px 0;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    h3 {
+      color: #1f2937;
+      margin-top: 25px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    ul {
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+
+    li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+      transition: color 0.3s ease;
+    }
+
+    li:hover {
+      color: #3b82f6;
+    }
+
+    .role-title {
+      font-weight: 700;
+      font-size: 1.15em;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+      position: relative;
+    }
+
+    a:hover,
+    a:focus {
+      color: #4f46e5;
+      transform: scale(1.05);
+    }
+
+    /* Underline animation on links */
+    a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #4f46e5;
+      left: 0;
+      bottom: -3px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+      border-radius: 2px;
+    }
+
+    a:hover::after,
+    a:focus::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    footer p {
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      .container {
+        padding: 20px 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<header>
+  <header>
     <h1>DevOps & Cloud Engineer</h1>
     <p>Skilled in AWS | Kubernetes | Docker | CI/CD | Jenkins | GitHub Actions | Terraform | ArgoCD | Monitoring</p>
-</header>
+  </header>
 
-<div class="container">
+  <div class="container">
     <section id="about">
-        <h2>About Me</h2>
-        <p>I am a dedicated DevOps and Cloud Engineer with 1.5 years of hands-on experience in automating infrastructure, implementing CI/CD pipelines, and managing deployments on AWS and Kubernetes. I strive to build robust, scalable, and secure cloud environments with a passion for automation and DevSecOps practices.</p>
+      <h2>About Me</h2>
+      <hr />
+      <p>
+        I am a dedicated DevOps and Cloud Engineer with 1.5 years of hands-on
+        experience in automating infrastructure, implementing CI/CD pipelines,
+        and managing deployments on AWS and Kubernetes. I strive to build
+        robust, scalable, and secure cloud environments with a passion for
+        automation and DevSecOps practices.
+      </p>
     </section>
 
     <section id="devops">
-        <h2>DevOps Engineer Experience</h2>
+      <h2>DevOps Engineer Experience</h2>
+      <hr />
+      <div class="project">
+        <h3>NestIndia | Nov 2022 – Present</h3>
+        <p class="role-title">DevOps Engineer</p>
+        <ul>
+          <li>Implemented CI/CD pipelines using GitHub, Jenkins, and AWS ECR for automated deployments.</li>
+          <li>Managed containerized apps on Amazon EKS with Helm and Ingress Controller.</li>
+          <li>Configured PostgreSQL on RDS with backup and performance tuning.</li>
+          <li>Set up Prometheus and Grafana for performance monitoring and alerting.</li>
+          <li>Integrated ArgoCD for GitOps-based continuous deployment workflows.</li>
+        </ul>
+      </div>
 
-        <div class="project">
-            <h3>NestIndia | Nov 2022 – Present</h3>
-            <p class="role-title">DevOps Engineer</p>
-            <ul>
-                <li>Implemented CI/CD pipelines using GitHub, Jenkins, and AWS ECR for automated deployments.</li>
-                <li>Managed containerized apps on Amazon EKS with Helm and Ingress Controller.</li>
-                <li>Configured PostgreSQL on RDS with backup and performance tuning.</li>
-                <li>Set up Prometheus and Grafana for performance monitoring and alerting.</li>
-                <li>Integrated ArgoCD for GitOps-based continuous deployment workflows.</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>Xebia | Apr 2024 – Jul 2024</h3>
-            <p class="role-title">DevOps Trainee</p>
-            <ul>
-                <li>Created CI/CD pipelines for frontend apps using GitHub Actions and Jenkins.</li>
-                <li>Built and deployed a React-based dashboard with Docker and Kubernetes.</li>
-                <li>Collaborated with developers and testers for streamlined delivery.</li>
-            </ul>
-        </div>
+      <div class="project">
+        <h3>Xebia | Apr 2024 – Jul 2024</h3>
+        <p class="role-title">DevOps Trainee</p>
+        <ul>
+          <li>Created CI/CD pipelines for frontend apps using GitHub Actions and Jenkins.</li>
+          <li>Built and deployed a React-based dashboard with Docker and Kubernetes.</li>
+          <li>Collaborated with developers and testers for streamlined delivery.</li>
+        </ul>
+      </div>
     </section>
 
     <section id="cloud">
-        <h2>Cloud Engineer Experience</h2>
+      <h2>Cloud Engineer Experience</h2>
+      <hr />
+      <div class="project">
+        <h3>Boostr Netwave | Aug 2024 – Mar 2025</h3>
+        <p class="role-title">Cloud DevOps Engineer</p>
+        <ul>
+          <li>Automated deployments with custom Python scripts and CI workflows.</li>
+          <li>Managed ECS and EKS clusters, improved cluster performance and security.</li>
+          <li>Used Terraform and Ansible for IaC and automated provisioning.</li>
+        </ul>
+      </div>
 
-        <div class="project">
-            <h3>Boostr Netwave | Aug 2024 – Mar 2025</h3>
-            <p class="role-title">Cloud DevOps Engineer</p>
-            <ul>
-                <li>Automated deployments with custom Python scripts and CI workflows.</li>
-                <li>Managed ECS and EKS clusters, improved cluster performance and security.</li>
-                <li>Used Terraform and Ansible for IaC and automated provisioning.</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>SDE Hire | Aug 2024 – Dec 2024</h3>
-            <p class="role-title">Cloud DevOps Intern</p>
-            <ul>
-                <li>Worked with EC2, EKS, Auto Scaling, and VPC for secure cloud hosting.</li>
-                <li>Deployed backend services with Docker and Jenkins pipelines.</li>
-                <li>Enhanced monitoring and alerts using CloudWatch and Prometheus stack.</li>
-            </ul>
-        </div>
+      <div class="project">
+        <h3>SDE Hire | Aug 2024 – Dec 2024</h3>
+        <p class="role-title">Cloud DevOps Intern</p>
+        <ul>
+          <li>Worked with EC2, EKS, Auto Scaling, and VPC for secure cloud hosting.</li>
+          <li>Deployed backend services with Docker and Jenkins pipelines.</li>
+          <li>Enhanced monitoring and alerts using CloudWatch and Prometheus stack.</li>
+        </ul>
+      </div>
     </section>
 
     <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, RDS, EKS, ECS, IAM, Auto Scaling)</li>
-            <li><strong>CI/CD:</strong> Jenkins, GitHub Actions, ArgoCD</li>
-            <li><strong>Containers:</strong> Docker, Kubernetes, Helm</li>
-            <li><strong>IaC:</strong> Terraform, Ansible</li>
-            <li><strong>Monitoring:</strong> Prometheus, Grafana</li>
-            <li><strong>Scripting:</strong> Python, Bash</li>
-            <li><strong>VCS:</strong> Git, GitHub</li>
-            <li><strong>Others:</strong> Ingress Controller, React (Frontend), Agile, GitOps</li>
-        </ul>
+      <h2>Skills</h2>
+      <hr />
+      <ul>
+        <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, RDS, EKS, ECS, IAM, Auto Scaling)</li>
+        <li><strong>CI/CD:</strong> Jenkins, GitHub Actions, ArgoCD</li>
+        <li><strong>Containers:</strong> Docker, Kubernetes, Helm</li>
+        <li><strong>IaC:</strong> Terraform, Ansible</li>
+        <li><strong>Monitoring:</strong> Prometheus, Grafana</li>
+        <li><strong>Scripting:</strong> Python, Bash</li>
+        <li><strong>VCS:</strong> Git, GitHub</li>
+        <li><strong>Others:</strong> Ingress Controller, React (Frontend), Agile, GitOps</li>
+      </ul>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: yourname@example.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-        <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
+      <h2>Contact</h2>
+      <hr />
+      <p>Email: <a href="mailto:yourname@example.com">sureshnangina@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/n-suresh-kumar/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/n-suresh-kumar/</a></p>
     </section>
-</div>
+  </div>
 
-<footer>
+  <footer>
     <p>&copy; 2025 DevOps & Cloud Engineer Portfolio</p>
-</footer>
-
+  </footer>
 </body>
 </html>
