@@ -7,107 +7,62 @@
     <title>N. Kumar Suresh - DevOps Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             color: #333;
         }
 
         header {
-            background: linear-gradient(90deg, #333, #555);
-            color: #fff;
-            padding: 20px 0;
+            background: linear-gradient(120deg, #007bff, #00c6ff);
+            color: white;
+            padding: 2rem 1rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1.5px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin: 5px 0 0;
-        }
-
-        nav ul {
-            padding: 0;
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #ff8c00;
-        }
-
-        hr {
-            border: none;
-            height: 3px;
-            background-color: #333;
-            margin: 40px 0;
-            border-radius: 5px;
+        header img {
+            width: 150px;
+            border-radius: 50%;
+            margin-top: 1rem;
+            animation: scaleUp 2s ease-in-out;
         }
 
         section {
-            padding: 20px;
-            margin: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            animation: slideInUp 1s ease-out;
         }
 
         h2 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            border-bottom: 3px solid #ff8c00;
-            display: inline-block;
-            padding-bottom: 5px;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 0.3rem;
         }
 
-        .project {
-            margin-bottom: 25px;
+        ul {
+            list-style: square;
+            padding-left: 1.5rem;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 40px;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
+        @keyframes scaleUp {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
         }
 
-        a {
-            color: #ff8c00;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        @keyframes slideInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
@@ -115,130 +70,44 @@
 <body>
     <header>
         <h1>N. Kumar Suresh</h1>
-        <p>Cloud DevOps Engineer</p>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#internship">Internship</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <p>DevOps Engineer | Cloud Enthusiast | Automation Expert</p>
+        <img src="https://via.placeholder.com/150" alt="Profile Picture">
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am currently pursuing Bachelor of Technology in Computer Science Engineering at Lovely Professional University. With hands-on experience in DevOps, I have worked on various projects, including setting up CI/CD pipelines, deploying applications, and managing cloud infrastructure.</p>
-    </section>
+    <section id="experience">
+        <h2>Professional Experience</h2>
 
-    <hr>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>End-To-End DevOps Pipeline</h3>
-            <p>Developed a React.js application and automated the build, test, and deployment processes using Github, Jenkins, SonarQube, Docker, and AWS.
-               
-            </p>
-        </div>
-        <div class="project">
-            <h3>Dynamic Cloud Infrastructure</h3>
-            <p>Created VPCs, Auto Scaling Groups, and Load Balancers on AWS, with a Bastion host for secure access to private instances.</p>
-        </div>
-        <div class="project">
-            <h3>Selenium Automation</h3>
-            <p>Designed a business webpage using HTML, CSS, and JavaScript. Wrote Python scripts using Selenium to automate the webpage, streamlining testing and user interaction processes.</p>
-        </div>
-    </section>
-
-    <hr>
-
-    <section id="skills">
-        <h2>Technical Skills</h2>
+        <h3>NestIndia</h3>
+        <p><strong>DevOps Engineer</strong> (Nov 2022 – Present)</p>
         <ul>
-            <li>Python, HTML, CSS, JavaScript, Node.js, React.js</li>
-            <li>DevOps: Kubernetes, Terraform, Ansible, Docker, SonarQube, Git, Github, Jenkins</li>
-            <li>Cloud: AWS, Azure</li>
-            <li>Automation: Selenium, Cypress</li>
-            <li>Monitoring: Grafana, Prometheus, ELK stack</li>
+            <li>Architected and implemented end-to-end CI/CD pipelines using GitHub, Jenkins, and AWS ECR.</li>
+            <li>Orchestrated containerized backend deployments on Amazon EKS using Helm and Ingress Controller.</li>
+            <li>Designed and provisioned Amazon RDS for PostgreSQL with optimized performance and backups.</li>
+            <li>Integrated Prometheus and Grafana for cluster monitoring and proactive alerts.</li>
+            <li>Automated GitOps-based application delivery using ArgoCD integrated with GitHub and AWS ECR.</li>
+        </ul>
+
+        <h3>Boostr Netwave</h3>
+        <p><strong>Cloud DevOps Engineer</strong> (Aug 2024 – Mar 2025)</p>
+        <ul>
+            <li>Developed Python scripts for deployment automation and monitoring system health.</li>
+            <li>Managed containerized applications using Docker, Kubernetes, and AWS ECS/EKS.</li>
+            <li>Implemented infrastructure as code (IaC) using Terraform and Ansible.</li>
         </ul>
     </section>
-
-    <hr>
 
     <section id="internship">
         <h2>Internship Experience</h2>
-        <h3>SDE Hire</h3>
-        <p><strong>DevOps Intern</strong> (Since AUG'24)</p>
+
+        <h3>Xebia Academy</h3>
+        <p><strong>DevOps Intern</strong> (3 Months)</p>
         <ul>
-            <li>Assisted in automating software development pipelines using CI/CD tools such as Jenkins and GitHub Actions.</li>
-            <li>Deployed and managed containerized applications using Docker, Kubernetes, and AWS services like ECS and EKS.</li>
-            <li>Monitored and optimized application performance with CloudWatch and Prometheus, ensuring system reliability and 
-scalability. </li>
-            <li>Developed infrastructure as code (IaC) solutions using Terraform and Ansible for efficient resource provisioning.</li>
-            <li>Partnered with cross-functional teams to implement DevSecOps practices, enhancing security and compliance in the 
-deployment process.</li>
-        </ul>
-         <h3>Boostr Netwave </h3>
-        <p><strong>Cloud DevOps Intern</strong> (Since OCT'24)</p>
-        <ul>
-            <li>Assisted in managing and monitoring AWS cloud environments to maintain high availability, performance, and 
-scalability.</li>
-            <li>Set up and configured servers to support scalable and secure application deployments.</li>
-            <li>Deployed and managed applications using AWS services like EC2, ECS, EKS, and Auto Scaling. Improved 
-monitoring and alerting systems, ensuring optimal system health and availability.</li>
-            <li>Automated CI/CD pipelines for efficient deployment using Jenkins, Docker, and GitHub. Partnered with teams to 
-optimize cloud environments for performance and cost-efficiency</li>
-        </ul>
-        <h3>Xebia</h3>
-        <p><strong>DevOps Intern</strong> (May 2024 – July 2024)</p>
-        <ul>
-            <li>Developed a web application using React, enhancing user experience and interface design.</li>
-            <li>Designed and implemented a CI/CD pipeline, automating the build, test, and deployment processes.</li>
-            <li>Collaborated with a cross-functional team to ensure seamless integration and delivery of application updates.</li>
-            <li>Gained hands-on experience with tools such as Jenkins, Docker, and Git for version control and containerization.</li>
-        </ul>
-        <h3>Lovely Professional University-AWS Academy</h3>
-        <p><strong>Cloud Intern</strong>(Jan 2024- Mar 2024)</p>
-        <ul>
-            <li>Gained hands-on experience with AWS services such as EC2, S3, EKS, ECR, ECS, CloudWatch, Lambda, Route 53, 
-                CloudFormation, IAM, VPC, RDS, and CodeBuild, focusing on deployment and management of cloud 
-                infrastructure and applications.</li>
-            <li>Developed skills in configuring, securing, and optimizing cloud environments for scalable and efficient 
-                operations, enhancing overall infrastructure performance and reliability.</li>
+            <li>Developed a React-based web application with enhanced user experience.</li>
+            <li>Built CI/CD pipelines automating build, test, and deployment.</li>
+            <li>Used Jenkins, Docker, and Git to streamline development and operations.</li>
+            <li>Collaborated with cross-functional teams for smooth application integration and delivery.</li>
         </ul>
     </section>
-
-    <hr>
-
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>Salesforce – SkillStone – Mar’24</li>
-            <li>AWS Academy Graduate – AWS-SEP’23 </li>
-            <li>IBM Cloud Essentials – EDX – Nov’23</li>
-            <li>DevOps – EDX – Apr’23</li>
-            <li>Data Structures and Algorithms (DSA) – Geeks for Geeks – Jul’23</li>
-            <li>Web Development – Xebia Hackathon – Mar’23</li>
-            
-        </ul>
-    </section>
-
-    <hr>
-
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:sureshnangina@gmail.com">sureshnangina@gmail.com</a></p>
-        <p>Phone: +91 9581972030</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/n-suresh-kumar" target="_blank">linkedin.com/in/n-suresh-kumar</a></p>
-        <p>GitHub: <a href="https://github.com/kumarsuresh03" target="_blank">github.com/kumarsuresh03</a></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 N. Kumar Suresh. All rights reserved.</p>
-    </footer>
 </body>
 
 </html>
