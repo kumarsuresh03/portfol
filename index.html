@@ -3,94 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Engineer Portfolio</title>
+    <title>DevOps & Cloud Engineer Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            background-color: #f4f4f4;
+            background-color: #f4f7fa;
+            color: #333;
         }
         header, footer {
-            background-color: #333;
+            background-color: #1f2937;
             color: #fff;
-            padding: 10px 20px;
+            padding: 20px 10px;
             text-align: center;
         }
         .container {
-            padding: 20px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
+            padding: 30px 20px;
             background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
         }
-        h1, h2, h3 {
-            color: #333;
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #1f2937;
+            margin-top: 25px;
         }
         ul {
             padding-left: 20px;
         }
-        .project {
-            margin-bottom: 30px;
+        li {
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+        a {
+            color: #1d4ed8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .role-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #374151;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>DevOps Engineer Portfolio</h1>
-    <p>Experienced in AWS, Kubernetes, Docker, CI/CD, GitHub Actions, Jenkins, Terraform, ArgoCD, Prometheus & Grafana</p>
+    <h1>DevOps & Cloud Engineer</h1>
+    <p>Skilled in AWS | Kubernetes | Docker | CI/CD | Jenkins | GitHub Actions | Terraform | ArgoCD | Monitoring</p>
 </header>
 
 <div class="container">
     <section id="about">
         <h2>About Me</h2>
-        <p>I am a passionate DevOps Engineer with 1.5 years of experience in cloud-native technologies and automation. Skilled in implementing scalable CI/CD pipelines, managing cloud infrastructure on AWS, and leveraging tools like Jenkins, GitHub Actions, Terraform, and Kubernetes. I aim to drive efficient, secure, and high-availability deployments through automation and best practices.</p>
+        <p>I am a dedicated DevOps and Cloud Engineer with 1.5 years of hands-on experience in automating infrastructure, implementing CI/CD pipelines, and managing deployments on AWS and Kubernetes. I strive to build robust, scalable, and secure cloud environments with a passion for automation and DevSecOps practices.</p>
     </section>
 
-    <section id="internship">
-        <h2>Professional Experience</h2>
+    <section id="devops">
+        <h2>DevOps Engineer Experience</h2>
 
         <div class="project">
             <h3>NestIndia | Nov 2022 – Present</h3>
-            <p><strong>DevOps Engineer</strong></p>
+            <p class="role-title">DevOps Engineer</p>
             <ul>
-                <li>Architected and implemented CI/CD pipelines using GitHub, Jenkins, and AWS ECR to automate builds, tests, and deployments.</li>
-                <li>Deployed containerized applications on Amazon EKS using Helm and Ingress Controller for scalability and traffic management.</li>
-                <li>Provisioned and optimized Amazon RDS for PostgreSQL, enhancing performance, security, and backup automation.</li>
-                <li>Integrated Prometheus and Grafana for monitoring and alerting, enabling proactive system performance management.</li>
-                <li>Automated GitOps-based deployments on EKS using ArgoCD, integrated with AWS ECR and GitHub for streamlined delivery.</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>Boostr Netwave | Aug 2024 – Mar 2025</h3>
-            <p><strong>Cloud DevOps Engineer</strong></p>
-            <ul>
-                <li>Created Python scripts to automate deployment workflows and monitor system health, enhancing operational efficiency.</li>
-                <li>Managed Docker and Kubernetes-based containerized deployments using AWS ECS and EKS.</li>
-                <li>Implemented Infrastructure as Code using Terraform and Ansible to automate resource provisioning.</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>SDE Hire | Aug 2024 – Dec 2024</h3>
-            <p><strong>Cloud DevOps Intern</strong></p>
-            <ul>
-                <li>Assisted in maintaining AWS environments to ensure high availability and performance.</li>
-                <li>Configured scalable servers and deployed applications using EC2, ECS, EKS, and Auto Scaling.</li>
-                <li>Improved monitoring and alerting systems to maintain system health and availability.</li>
-                <li>Automated CI/CD pipelines using Jenkins, Docker, and GitHub for fast and reliable delivery.</li>
+                <li>Implemented CI/CD pipelines using GitHub, Jenkins, and AWS ECR for automated deployments.</li>
+                <li>Managed containerized apps on Amazon EKS with Helm and Ingress Controller.</li>
+                <li>Configured PostgreSQL on RDS with backup and performance tuning.</li>
+                <li>Set up Prometheus and Grafana for performance monitoring and alerting.</li>
+                <li>Integrated ArgoCD for GitOps-based continuous deployment workflows.</li>
             </ul>
         </div>
 
         <div class="project">
             <h3>Xebia | Apr 2024 – Jul 2024</h3>
-            <p><strong>DevOps Trainee</strong></p>
+            <p class="role-title">DevOps Trainee</p>
             <ul>
-                <li>Built a responsive web application using React to enhance user experience and UI design.</li>
-                <li>Designed and implemented CI/CD pipelines automating the build, test, and deployment lifecycle.</li>
-                <li>Collaborated with cross-functional teams for smooth delivery and gained experience with Jenkins, Docker, and Git.</li>
+                <li>Created CI/CD pipelines for frontend apps using GitHub Actions and Jenkins.</li>
+                <li>Built and deployed a React-based dashboard with Docker and Kubernetes.</li>
+                <li>Collaborated with developers and testers for streamlined delivery.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="cloud">
+        <h2>Cloud Engineer Experience</h2>
+
+        <div class="project">
+            <h3>Boostr Netwave | Aug 2024 – Mar 2025</h3>
+            <p class="role-title">Cloud DevOps Engineer</p>
+            <ul>
+                <li>Automated deployments with custom Python scripts and CI workflows.</li>
+                <li>Managed ECS and EKS clusters, improved cluster performance and security.</li>
+                <li>Used Terraform and Ansible for IaC and automated provisioning.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>SDE Hire | Aug 2024 – Dec 2024</h3>
+            <p class="role-title">Cloud DevOps Intern</p>
+            <ul>
+                <li>Worked with EC2, EKS, Auto Scaling, and VPC for secure cloud hosting.</li>
+                <li>Deployed backend services with Docker and Jenkins pipelines.</li>
+                <li>Enhanced monitoring and alerts using CloudWatch and Prometheus stack.</li>
             </ul>
         </div>
     </section>
@@ -98,14 +129,14 @@
     <section id="skills">
         <h2>Skills</h2>
         <ul>
-            <li>Cloud Platforms: AWS (EC2, S3, RDS, EKS, ECS, IAM, Auto Scaling)</li>
-            <li>CI/CD Tools: Jenkins, GitHub Actions, ArgoCD</li>
-            <li>Containerization: Docker, Kubernetes, Helm</li>
-            <li>IaC: Terraform, Ansible</li>
-            <li>Monitoring: Prometheus, Grafana</li>
-            <li>Scripting: Python, Bash</li>
-            <li>VCS: Git, GitHub</li>
-            <li>Others: Ingress Controller, React (for frontend), Agile practices</li>
+            <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, RDS, EKS, ECS, IAM, Auto Scaling)</li>
+            <li><strong>CI/CD:</strong> Jenkins, GitHub Actions, ArgoCD</li>
+            <li><strong>Containers:</strong> Docker, Kubernetes, Helm</li>
+            <li><strong>IaC:</strong> Terraform, Ansible</li>
+            <li><strong>Monitoring:</strong> Prometheus, Grafana</li>
+            <li><strong>Scripting:</strong> Python, Bash</li>
+            <li><strong>VCS:</strong> Git, GitHub</li>
+            <li><strong>Others:</strong> Ingress Controller, React (Frontend), Agile, GitOps</li>
         </ul>
     </section>
 
@@ -118,7 +149,7 @@
 </div>
 
 <footer>
-    <p>&copy; 2025 DevOps Engineer Portfolio</p>
+    <p>&copy; 2025 DevOps & Cloud Engineer Portfolio</p>
 </footer>
 
 </body>
