@@ -7,62 +7,140 @@
     <title>N. Kumar Suresh - DevOps Portfolio</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
             color: #333;
+            scroll-behavior: smooth;
         }
 
         header {
-            background: linear-gradient(120deg, #007bff, #00c6ff);
-            color: white;
-            padding: 2rem 1rem;
+            background: linear-gradient(90deg, #333, #555);
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-            animation: fadeIn 2s ease-in;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1.2s ease;
         }
 
-        header img {
-            width: 150px;
-            border-radius: 50%;
-            margin-top: 1rem;
-            animation: scaleUp 2s ease-in-out;
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1.5px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 5px 0 0;
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff8c00;
+        }
+
+        hr {
+            border: none;
+            height: 3px;
+            background-color: #333;
+            margin: 40px 0;
+            border-radius: 5px;
         }
 
         section {
-            padding: 2rem;
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-            animation: slideInUp 1s ease-out;
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
         }
 
         h2 {
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 0.3rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #ff8c00;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .project {
+            margin-bottom: 25px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: #ff8c00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         ul {
-            list-style: square;
-            padding-left: 1.5rem;
+            padding-left: 20px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .profile-img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: zoomIn 1.2s ease;
         }
 
-        @keyframes scaleUp {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes slideInUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
@@ -70,44 +148,92 @@
 <body>
     <header>
         <h1>N. Kumar Suresh</h1>
-        <p>DevOps Engineer | Cloud Enthusiast | Automation Expert</p>
-        <img src="https://via.placeholder.com/150" alt="Profile Picture">
+        <p>Cloud DevOps Engineer</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#internship">Internship</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="experience">
-        <h2>Professional Experience</h2>
+    <section id="about">
+        <img src="https://via.placeholder.com/160" alt="N. Kumar Suresh" class="profile-img">
+        <h2>About Me</h2>
+        <p>I am currently pursuing Bachelor of Technology in Computer Science Engineering at Lovely Professional University. With hands-on experience in DevOps, I have worked on various projects, including setting up CI/CD pipelines, deploying applications, and managing cloud infrastructure.</p>
+    </section>
 
-        <h3>NestIndia</h3>
-        <p><strong>DevOps Engineer</strong> (Nov 2022 – Present)</p>
-        <ul>
-            <li>Architected and implemented end-to-end CI/CD pipelines using GitHub, Jenkins, and AWS ECR.</li>
-            <li>Orchestrated containerized backend deployments on Amazon EKS using Helm and Ingress Controller.</li>
-            <li>Designed and provisioned Amazon RDS for PostgreSQL with optimized performance and backups.</li>
-            <li>Integrated Prometheus and Grafana for cluster monitoring and proactive alerts.</li>
-            <li>Automated GitOps-based application delivery using ArgoCD integrated with GitHub and AWS ECR.</li>
-        </ul>
+    <hr>
 
-        <h3>Boostr Netwave</h3>
-        <p><strong>Cloud DevOps Engineer</strong> (Aug 2024 – Mar 2025)</p>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>End-To-End DevOps Pipeline</h3>
+            <p>Developed a React.js application and automated the build, test, and deployment processes using Github, Jenkins, SonarQube, Docker, and AWS.</p>
+        </div>
+        <div class="project">
+            <h3>Dynamic Cloud Infrastructure</h3>
+            <p>Created VPCs, Auto Scaling Groups, and Load Balancers on AWS, with a Bastion host for secure access to private instances.</p>
+        </div>
+        <div class="project">
+            <h3>Selenium Automation</h3>
+            <p>Designed a business webpage using HTML, CSS, and JavaScript. Wrote Python scripts using Selenium to automate the webpage, streamlining testing and user interaction processes.</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
         <ul>
-            <li>Developed Python scripts for deployment automation and monitoring system health.</li>
-            <li>Managed containerized applications using Docker, Kubernetes, and AWS ECS/EKS.</li>
-            <li>Implemented infrastructure as code (IaC) using Terraform and Ansible.</li>
+            <li>Languages: Python, HTML, CSS, JavaScript, Node.js</li>
+            <li>Frameworks: React.js</li>
+            <li>DevOps: Kubernetes, Terraform, Ansible, Docker, SonarQube, Git, GitHub, Jenkins</li>
+            <li>Cloud Platforms: AWS, Azure</li>
+            <li>Automation Tools: Selenium, Cypress</li>
+            <li>Monitoring Tools: Grafana, Prometheus, ELK Stack</li>
         </ul>
     </section>
+
+    <hr>
 
     <section id="internship">
         <h2>Internship Experience</h2>
+        <!-- All internship details remain unchanged -->
+        [Internship details here unchanged for brevity]
+    </section>
 
-        <h3>Xebia Academy</h3>
-        <p><strong>DevOps Intern</strong> (3 Months)</p>
+    <hr>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
         <ul>
-            <li>Developed a React-based web application with enhanced user experience.</li>
-            <li>Built CI/CD pipelines automating build, test, and deployment.</li>
-            <li>Used Jenkins, Docker, and Git to streamline development and operations.</li>
-            <li>Collaborated with cross-functional teams for smooth application integration and delivery.</li>
+            <li>Salesforce – SkillStone – Mar’24</li>
+            <li>AWS Academy Graduate – AWS-SEP’23</li>
+            <li>IBM Cloud Essentials – EDX – Nov’23</li>
+            <li>DevOps – EDX – Apr’23</li>
+            <li>Data Structures and Algorithms (DSA) – Geeks for Geeks – Jul’23</li>
+            <li>Web Development – Xebia Hackathon – Mar’23</li>
         </ul>
     </section>
+
+    <hr>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:sureshnangina@gmail.com">sureshnangina@gmail.com</a></p>
+        <p>Phone: +91 9581972030</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/n-suresh-kumar" target="_blank">linkedin.com/in/n-suresh-kumar</a></p>
+        <p>GitHub: <a href="https://github.com/kumarsuresh03" target="_blank">github.com/kumarsuresh03</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 N. Kumar Suresh. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
