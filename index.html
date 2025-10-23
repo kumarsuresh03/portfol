@@ -12,30 +12,33 @@
         /* Custom styles for professional typography and spacing */
         body {
             font-family: 'Inter', sans-serif;
-            /* Richer, darker background for a professional look */
-            background-color: #e5e7eb; 
+            background-color: #f7f7f9; /* Light background for web feel */
+            scroll-behavior: smooth; /* Smooth scrolling for navigation links */
+            padding-top: 4rem; /* Offset for the sticky header */
         }
         
-        /* Sticky Header Background */
-        header {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        /* Sticky Header */
+        #navbar {
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+            z-index: 1000;
         }
-        
+
         /* Section Title Underline Accent */
         .section-title {
             position: relative;
             padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
+            margin-bottom: 2rem;
+            font-weight: 800;
             color: #1f2937; /* Dark Gray */
+            font-size: 2.25rem; /* Text-4xl equivalent */
         }
         .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
-            height: 4px; /* Slightly thicker accent line */
+            width: 80px; /* Longer line */
+            height: 4px;
             background-color: #0d9488; /* Teal Accent */
             border-radius: 2px;
         }
@@ -47,331 +50,339 @@
             margin-bottom: 0.5rem;
         }
         .achievement-list li::before {
-            content: '✓'; /* Checkmark icon for achievements */
+            content: '✓'; 
             position: absolute;
             left: 0;
-            color: #10b981; /* Green success color */
+            color: #10b981; 
             font-weight: bold;
         }
-        
-        /* Style for the professional summary box */
-        .summary-box {
-            /* Stronger vertical accent */
-            border-left: 6px solid #0d9488;
-        }
-        
-        /* New styles for skill badges */
+
+        /* Skill Tag styles */
         .tag-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem; /* Equivalent to gap-2 */
+            gap: 0.5rem;
             padding-top: 0.5rem;
         }
         .skill-tag {
             display: inline-flex;
             align-items: center;
-            padding: 0.25rem 0.75rem; /* Equivalent to px-3 py-1 */
-            border-radius: 9999px; /* Equivalent to rounded-full */
-            font-size: 0.75rem; /* Equivalent to text-xs */
-            font-weight: 500; /* Equivalent to font-medium */
+            padding: 0.35rem 1rem; 
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
             transition: background-color 0.3s;
         }
-        
-        /* General card styling for hover effect */
-        .dynamic-card {
-            transition: all 0.3s ease-in-out;
+        /* Experience Card Styling */
+        .exp-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
         }
-        .dynamic-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+        .exp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
 
-    <div class="max-w-4xl mx-auto my-0 md:my-8 bg-white shadow-2xl rounded-xl overflow-hidden">
+    <!-- STICKY NAVIGATION BAR (Full Website Look) -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-gray-900 text-white p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#hero" class="text-xl font-extrabold text-teal-300 hover:text-teal-400 transition">N. Kumar Suresh</a>
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#summary" class="hover:text-teal-300 transition">Summary</a>
+                <a href="#experience" class="hover:text-teal-300 transition">Experience</a>
+                <a href="#skills" class="hover:text-teal-300 transition">Skills</a>
+                <a href="#projects" class="hover:text-teal-300 transition">Projects</a>
+                <a href="#contact" class="hover:text-teal-300 transition">Contact</a>
+            </div>
+            <!-- Mobile Menu Placeholder (can be expanded later) -->
+            <button class="md:hidden text-teal-300 hover:text-teal-400 transition">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- MAIN CONTENT CONTAINER (Max width for readability) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+        <!-- HERO SECTION (Replaces old header structure) -->
+        <section id="hero" class="pt-16 pb-12 text-center bg-gray-100 rounded-lg shadow-xl mt-8">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">N. Kumar Suresh</h1>
+            <p class="text-2xl md:text-3xl font-light text-teal-600 mt-2">Highly Accomplished DevOps & Cloud Engineer</p>
+            
+            <div class="mt-8 flex justify-center flex-wrap gap-x-8 gap-y-4 text-sm font-medium">
+                <!-- Contact Info as Hero Callouts -->
+                <a href="https://linkedin.com/in/n-suresh-kumar" target="_blank" class="flex items-center text-gray-700 hover:text-blue-600 transition">
+                    <i data-lucide="linkedin" class="w-5 h-5 mr-2"></i>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/kumarsuresh03" target="_blank" class="flex items-center text-gray-700 hover:text-gray-900 transition">
+                    <i data-lucide="github" class="w-5 h-5 mr-2"></i>
+                    GitHub
+                </a>
+                <a href="mailto:sureshnangina@gmail.com" class="flex items-center text-gray-700 hover:text-red-500 transition">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                    sureshnangina@gmail.com
+                </a>
+                <a href="tel:+919581972030" class="flex items-center text-gray-700 hover:text-green-600 transition">
+                    <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+                    +91-9581972030
+                </a>
+            </div>
+        </section>
+
+        <!-- Professional Summary -->
+        <section id="summary" class="py-10">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="p-6 bg-teal-50 rounded-xl shadow-lg border-l-4 border-teal-500">
+                <p class="text-lg text-gray-700 leading-relaxed italic">
+                    Highly accomplished **DevOps & Cloud Engineer** with nearly two years of experience managing production infrastructure across AWS. Expert in **Kubernetes EKS** and **Terraform**. Proven track record of leveraging AIOps (Dynatrace) to improve **MTTR by 35%** and reduce monthly cloud costs by **30%**, ensuring cost-optimized and highly reliable deployments.
+                </p>
+            </div>
+        </section>
         
-        <!-- Header & Contact Info - NOW STICKY -->
-        <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 text-white p-6 md:p-8 rounded-t-xl shadow-lg">
-            <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center">
-                <div class="text-center md:text-left">
-                    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">N. Kumar Suresh</h1>
-                    <p class="text-lg font-light text-teal-300">DevOps & Cloud Engineer</p>
+        <!-- Skills -->
+        <section id="skills" class="py-10">
+            <h2 class="section-title">Expertise & Technologies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Skill Group Card 1: Cloud Platforms -->
+                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
+                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
+                        <i data-lucide="cloud" class="w-6 h-6 mr-2 text-blue-500"></i> Cloud Platforms
+                    </h3>
+                    <div class="tag-container">
+                        <span class="skill-tag bg-sky-100 text-sky-800">AWS</span>
+                        <span class="skill-tag bg-green-100 text-green-800">GCP</span>
+                        <span class="skill-tag bg-sky-100 text-sky-800">EC2, ECS, ECR</span>
+                        <span class="skill-tag bg-gray-100 text-gray-800">RDS, ElastiCache</span>
+                        <span class="skill-tag bg-gray-100 text-gray-800">IAM, VPC</span>
+                    </div>
+                </div>
+
+                <!-- Skill Group Card 2: Containerization & Orchestration -->
+                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
+                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
+                        <i data-lucide="package" class="w-6 h-6 mr-2 text-indigo-500"></i> Containerization & Orchestration
+                    </h3>
+                    <div class="tag-container">
+                        <span class="skill-tag bg-indigo-100 text-indigo-800">Docker</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800">Kubernetes (EKS/GKE)</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800">Helm</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800">ArgoCD (GitOps)</span>
+                    </div>
+                </div>
+
+                <!-- Skill Group Card 3: CI/CD & IaC -->
+                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
+                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
+                        <i data-lucide="layout-grid" class="w-6 h-6 mr-2 text-purple-500"></i> CI/CD & IaC
+                    </h3>
+                    <div class="tag-container">
+                        <span class="skill-tag bg-purple-100 text-purple-800">Terraform</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800">Jenkins</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800">GitHub Actions</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800">Python/Shell</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800">Maven</span>
+                    </div>
+                </div>
+
+                <!-- Skill Group Card 4: Monitoring & Networking -->
+                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
+                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
+                        <i data-lucide="activity" class="w-6 h-6 mr-2 text-red-500"></i> Monitoring & Networking
+                    </h3>
+                    <div class="tag-container">
+                        <span class="skill-tag bg-red-100 text-red-800">Grafana, Prometheus</span>
+                        <span class="skill-tag bg-red-100 text-red-800">CloudWatch, Logging</span>
+                        <span class="skill-tag bg-red-100 text-red-800">Dynatrace (AIOps)</span>
+                        <span class="skill-tag bg-red-100 text-red-800">TCP/IP, DNS</span>
+                    </div>
                 </div>
                 
-                <div class="mt-4 md:mt-0 flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-2 text-sm font-medium">
-                    <!-- LinkedIn -->
-                    <a href="https://linkedin.com/in/n-suresh-kumar" target="_blank" class="flex items-center hover:text-teal-400 transition">
-                        <i data-lucide="linkedin" class="w-4 h-4 mr-1"></i>
-                        LinkedIn
-                    </a>
-                    <!-- GitHub -->
-                    <a href="https://github.com/kumarsuresh03" target="_blank" class="flex items-center hover:text-teal-400 transition">
-                        <i data-lucide="github" class="w-4 h-4 mr-1"></i>
-                        GitHub
-                    </a>
-                    <!-- Email -->
-                    <a href="mailto:sureshnangina@gmail.com" class="hidden sm:flex items-center hover:text-teal-400 transition">
-                        <i data-lucide="mail" class="w-4 h-4 mr-1"></i>
-                        Email
-                    </a>
+                <!-- Skill Group Card 5: Soft Skills & Other -->
+                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
+                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
+                        <i data-lucide="user-check" class="w-6 h-6 mr-2 text-yellow-600"></i> Other & Soft Skills
+                    </h3>
+                    <div class="tag-container">
+                        <span class="skill-tag bg-yellow-100 text-yellow-800">Kubeflow (MLOps)</span>
+                        <span class="skill-tag bg-yellow-100 text-yellow-800">Problem-Solving</span>
+                        <span class="skill-tag bg-yellow-100 text-yellow-800">Leadership</span>
+                        <span class="skill-tag bg-gray-100 text-gray-800">MongoDB, Redis</span>
+                    </div>
                 </div>
             </div>
-        </header>
+        </section>
 
-        <main class="p-6 md:p-10 space-y-10" style="padding-top: 10rem;"> <!-- Added padding to offset fixed header height -->
+        <!-- Professional Experience -->
+        <section id="experience" class="py-10">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="space-y-8">
 
-            <!-- Professional Summary -->
-            <section>
-                <h2 class="section-title text-3xl">Professional Summary</h2>
-                <div class="summary-box p-5 bg-teal-50 rounded-lg shadow-inner">
-                    <p class="text-gray-700 leading-relaxed italic">
-                        Highly accomplished **DevOps & Cloud Engineer** with nearly two years of experience managing production infrastructure across AWS. Expert in **Kubernetes EKS** and **Terraform**. Proven track record of leveraging AIOps (Dynatrace) to improve **MTTR by 35%** and reduce monthly cloud costs by **30%**, ensuring cost-optimized and highly reliable deployments.
-                    </p>
+                <!-- Geta.ai -->
+                <div class="exp-card p-6 rounded-xl shadow-lg border-l-4 border-teal-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">DevOps Engineer</h3>
+                            <p class="text-lg text-gray-600">Geta.ai</p>
+                        </div>
+                        <span class="mt-2 md:mt-0 text-sm font-medium bg-teal-100 text-teal-800 px-3 py-1 rounded-full">July 2025 - Present</span>
+                    </div>
+                    <ul class="achievement-list text-gray-700 text-base mt-3">
+                        <li>Architected and managed a production-grade AWS environment (S3 + CloudFront, Amazon EKS, Lambda, MongoDB, Redis ElastiCache), ensuring **99.9% uptime**.</li>
+                        <li>Enhanced monitoring through **AIOps-driven observability** (Dynatrace Davis AI) for log anomaly detection and AI-based root-cause analysis, **improving MTTR by 35%**.</li>
+                        <li>Optimized AWS resource utilization (EKS, S3, Lambda, RDS, MongoDB), achieving a **30% reduction in monthly cloud costs** while maintaining high availability.</li>
+                        <li>Provisioned and managed infrastructure using **Terraform**, automating VPC, IAM, EKS, and RDS for consistent deployments.</li>
+                        <li>Implemented **Redis ElastiCache** for session management, reducing database load by 40% and improving API response times by 50%.</li>
+                    </ul>
                 </div>
-            </section>
+
+                <!-- NestIndia -->
+                <div class="exp-card p-6 rounded-xl shadow-lg border-l-4 border-teal-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">DevOps Engineer (Project/Contract)</h3>
+                            <p class="text-lg text-gray-600">NestIndia()</p>
+                        </div>
+                        <span class="mt-2 md:mt-0 text-sm font-medium bg-teal-100 text-teal-800 px-3 py-1 rounded-full">Nov 2024 – June 2025</span>
+                    </div>
+                    <ul class="achievement-list text-gray-700 text-base mt-3">
+                        <li>Orchestrated containerized deployments on **Amazon EKS** using **Helm** and **Ingress Controller**, ensuring high availability and scalability.</li>
+                        <li>Implemented end-to-end CI/CD pipelines using GitHub, **Jenkins**, and AWS ECR to automate build, test, and deployment workflows.</li>
+                        <li>Developed and integrated a comprehensive monitoring and alerting framework with **Prometheus and Grafana** for proactive issue detection.</li>
+                        <li>Automated application deployments on EKS using **ArgoCD** integrated with AWS ECR and GitHub, enabling seamless GitOps-based delivery.</li>
+                    </ul>
+                </div>
+            </div>
             
-            <!-- Skills - Updated to 3-column grid and new categories -->
-            <section>
-                <h2 class="section-title text-3xl">Expertise & Technologies</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    
-                    <!-- Skill Group Card 1: Cloud Platforms & AWS Services -->
-                    <div class="p-4 border border-gray-200 rounded-lg shadow-md bg-white dynamic-card">
-                        <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-1">
-                            <i data-lucide="cloud" class="w-5 h-5 mr-2 text-blue-500"></i> Cloud Platforms & AWS Services
-                        </h3>
-                        <div class="tag-container">
-                            <span class="skill-tag bg-sky-100 text-sky-800 hover:bg-sky-200"><i data-lucide="server" class="w-3 h-3 mr-1"></i> AWS</span>
-                            <span class="skill-tag bg-green-100 text-green-800 hover:bg-green-200"><i data-lucide="box" class="w-3 h-3 mr-1"></i> GCP</span>
-                            <span class="skill-tag bg-sky-100 text-sky-800 hover:bg-sky-200">EKS, ECS, EC2, ECR</span>
-                            <span class="skill-tag bg-sky-100 text-sky-800 hover:bg-sky-200">S3, CloudFront, Lambda</span>
-                            <span class="skill-tag bg-gray-100 text-gray-800 hover:bg-gray-200">VPC, Load Balancer, IAM</span>
-                        </div>
-                    </div>
-
-                    <!-- Skill Group Card 2: Containerization & Orchestration -->
-                    <div class="p-4 border border-gray-200 rounded-lg shadow-md bg-white dynamic-card">
-                        <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-1">
-                            <i data-lucide="package" class="w-5 h-5 mr-2 text-indigo-500"></i> Containerization & Orchestration
-                        </h3>
-                        <div class="tag-container">
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 hover:bg-indigo-200"><i data-lucide="ship" class="w-3 h-3 mr-1"></i> Docker</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 hover:bg-indigo-200"><i data-lucide="anchor" class="w-3 h-3 mr-1"></i> Kubernetes (EKS/GKE)</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 hover:bg-indigo-200"><i data-lucide="tent" class="w-3 h-3 mr-1"></i> Helm</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 hover:bg-indigo-200"><i data-lucide="compass" class="w-3 h-3 mr-1"></i> ArgoCD (GitOps)</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 hover:bg-indigo-200">NGINX Ingress</span>
-                        </div>
-                    </div>
-
-                    <!-- Skill Group Card 3: CI/CD & Infrastructure as Code (IaC) -->
-                    <div class="p-4 border border-gray-200 rounded-lg shadow-md bg-white dynamic-card">
-                        <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-1">
-                            <i data-lucide="layout-grid" class="w-5 h-5 mr-2 text-purple-500"></i> CI/CD & IaC
-                        </h3>
-                        <div class="tag-container">
-                            <span class="skill-tag bg-purple-100 text-purple-800 hover:bg-purple-200"><i data-lucide="code-brick" class="w-3 h-3 mr-1"></i> Terraform</span>
-                            <span class="skill-tag bg-purple-100 text-purple-800 hover:bg-purple-200"><i data-lucide="zap" class="w-3 h-3 mr-1"></i> Jenkins</span>
-                            <span class="skill-tag bg-purple-100 text-purple-800 hover:bg-purple-200"><i data-lucide="github" class="w-3 h-3 mr-1"></i> GitHub Actions</span>
-                            <span class="skill-tag bg-purple-100 text-purple-800 hover:bg-purple-200">Gitlab CI, Maven</span>
-                        </div>
-                    </div>
-
-                    <!-- Skill Group Card 4: AIOps & Observability (Spans 2 columns on desktop) -->
-                    <div class="p-4 border border-gray-200 rounded-lg shadow-md bg-white md:col-span-2 dynamic-card">
-                        <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-1">
-                            <i data-lucide="activity" class="w-5 h-5 mr-2 text-red-500"></i> AIOps & Observability
-                        </h3>
-                        <div class="tag-container">
-                            <span class="skill-tag bg-red-100 text-red-800 hover:bg-red-200"><i data-lucide="zap" class="w-3 h-3 mr-1"></i> Dynatrace (AIOps)</span>
-                            <span class="skill-tag bg-red-100 text-red-800 hover:bg-red-200"><i data-lucide="gauge" class="w-3 h-3 mr-1"></i> Grafana, Prometheus</span>
-                            <span class="skill-tag bg-red-100 text-red-800 hover:bg-red-200"><i data-lucide="search" class="w-3 h-3 mr-1"></i> CloudWatch, Cloud Logging</span>
-                            <span class="skill-tag bg-red-100 text-red-800 hover:bg-red-200">Fluent Bit</span>
-                            <span class="skill-tag bg-gray-100 text-gray-800 hover:bg-gray-200">Soft Skills: Problem-Solving, Leadership, Team Collaboration</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Skill Group Card 5: MLOps, Data & Scripting -->
-                    <div class="p-4 border border-gray-200 rounded-lg shadow-md bg-white dynamic-card">
-                        <h3 class="flex items-center text-lg font-semibold text-gray-800 mb-1">
-                            <i data-lucide="brain" class="w-5 h-5 mr-2 text-yellow-600"></i> MLOps, Data & Scripting
-                        </h3>
-                        <div class="tag-container">
-                            <span class="skill-tag bg-yellow-100 text-yellow-800 hover:bg-yellow-200"><i data-lucide="git-fork" class="w-3 h-3 mr-1"></i> Kubeflow (MLOps)</span>
-                            <span class="skill-tag bg-yellow-100 text-yellow-800 hover:bg-yellow-200"><i data-lucide="terminal" class="w-3 h-3 mr-1"></i> Python, Shell Scripts</span>
-                            <span class="skill-tag bg-yellow-100 text-yellow-800 hover:bg-yellow-200"><i data-lucide="database" class="w-3 h-3 mr-1"></i> RDS, MongoDB, Redis</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Professional Experience -->
-            <section>
-                <h2 class="section-title text-3xl">Professional Experience</h2>
-                <div class="space-y-8">
-
-                    <!-- Geta.ai -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-l-4 border-teal-500 dynamic-card">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">DevOps Engineer</h3>
-                                <p class="text-md text-gray-600">Geta.ai</p>
-                            </div>
-                            <span class="text-sm font-medium bg-teal-100 text-teal-800 px-3 py-1 rounded-full">July 2025 - Present</span>
-                        </div>
-                        <ul class="achievement-list text-gray-700 text-sm mt-3">
-                            <li>Architected and managed a production-grade AWS environment (S3 + CloudFront, Amazon EKS, Lambda, MongoDB, Redis ElastiCache), ensuring **99.9% uptime**.</li>
-                            <li>Enhanced monitoring through **AIOps-driven observability** (Dynatrace Davis AI) for log anomaly detection and AI-based root-cause analysis, **improving MTTR by 35%**.</li>
-                            <li>Optimized AWS resource utilization (EKS, S3, Lambda, RDS, MongoDB), achieving a **30% reduction in monthly cloud costs** while maintaining high availability.</li>
-                            <li>Provisioned and managed infrastructure using **Terraform**, automating VPC, IAM, EKS, and RDS for consistent deployments.</li>
-                            <li>Implemented **Redis ElastiCache** for session management, reducing database load by 40% and improving API response times by 50%.</li>
-                        </ul>
-                    </div>
-
-                    <!-- NestIndia -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-l-4 border-teal-500 dynamic-card">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">DevOps Engineer (Project/Contract)</h3>
-                                <p class="text-md text-gray-600">NestIndia()</p>
-                            </div>
-                            <span class="text-sm font-medium bg-teal-100 text-teal-800 px-3 py-1 rounded-full">Nov 2024 – June 2025</span>
-                        </div>
-                        <ul class="achievement-list text-gray-700 text-sm mt-3">
-                            <li>Orchestrated containerized deployments on **Amazon EKS** using **Helm** and **Ingress Controller**, ensuring high availability and scalability.</li>
-                            <li>Implemented end-to-end CI/CD pipelines using GitHub, **Jenkins**, and AWS ECR to automate build, test, and deployment workflows.</li>
-                            <li>Developed and integrated a comprehensive monitoring and alerting framework with **Prometheus and Grafana** for proactive issue detection.</li>
-                            <li>Automated application deployments on EKS using **ArgoCD** integrated with AWS ECR and GitHub, enabling seamless GitOps-based delivery.</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Boostr Netwave -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-l-4 border-teal-500 dynamic-card">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">Cloud DevOps Engineer (Project/Contract)</h3>
-                                <p class="text-md text-gray-600">Boostr Netwave (Odisha)</p>
-                            </div>
-                            <span class="text-sm font-medium bg-teal-100 text-teal-800 px-3 py-1 rounded-full">Aug 2024 – Nov 2024</span>
-                        </div>
-                        <ul class="achievement-list text-gray-700 text-sm mt-3">
-                            <li>Managed workloads on **Google Kubernetes Engine (GKE)** using Helm and GCP-native services like Cloud Load Balancing.</li>
-                            <li>Created **IaC templates with Terraform and Ansible** to provision GCP infrastructure (Compute Engine, Cloud Storage, VPCs, and IAM policies).</li>
-                            <li>Automated deployment workflows using **Python scripts** to handle dynamic resource provisioning.</li>
-                        </ul>
-                    </div>
-                    
-                </div>
-            </section>
-
             <!-- Internships Section -->
-            <section>
-                <h2 class="section-title text-3xl">Internships</h2>
+            <div class="pt-10">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-amber-300 pb-2">Internships</h3>
                 <div class="space-y-8">
                     <!-- TechInnovate Internship Card -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-l-4 border-amber-500 dynamic-card">
-                        <div class="flex justify-between items-start mb-2">
+                    <div class="exp-card p-6 rounded-xl shadow-lg border-l-4 border-amber-500">
+                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
                             <div>
-                                <h3 class="text-xl font-bold text-gray-800">DevOps Intern</h3>
-                                <p class="text-md text-gray-600">TechInnovate Solutions</p>
+                                <h4 class="text-xl font-bold text-gray-800">DevOps Intern</h4>
+                                <p class="text-lg text-gray-600">TechInnovate Solutions</p>
                             </div>
-                            <span class="text-sm font-medium bg-amber-100 text-amber-800 px-3 py-1 rounded-full">May 2024 – July 2024</span>
+                            <span class="mt-2 md:mt-0 text-sm font-medium bg-amber-100 text-amber-800 px-3 py-1 rounded-full">May 2024 – July 2024</span>
                         </div>
-                        <ul class="achievement-list text-gray-700 text-sm mt-3">
+                        <ul class="achievement-list text-gray-700 text-base mt-3">
                             <li>Assisted in migrating two legacy applications to **Docker containers**, standardizing the build and deployment process.</li>
                             <li>Developed **Shell scripts** for automating daily database backup and log rotation tasks across production EC2 instances.</li>
                             <li>Collaborated with the engineering team to deploy initial monitoring dashboards using **Prometheus**, gaining hands-on experience with system metrics.</li>
                         </ul>
                     </div>
-                </div>
-            </section>
-
-
-            <!-- Projects -->
-            <section>
-                <h2 class="section-title text-3xl">Key Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <!-- CI/CD Pipeline Project -->
-                    <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-100 dynamic-card">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">End To End CI/CD Pipeline</h3>
-                        <p class="text-sm font-medium text-teal-600 mb-3">Domain: DevOps | Tools: Jenkins, Sonarqube, AWS ECS</p>
-                        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                            <li>Built a robust CI/CD pipeline using **Jenkins, Docker, and GitHub Actions** to automate deployment to AWS ECS.</li>
-                            <li>Engineered pipelines integrating **SonarCloud**, reducing deployment time by 25% and improving code quality.</li>
-                            <li>Designed monitoring using **Amazon CloudWatch and SNS**, reducing incident response time by 30%.</li>
-                        </ul>
-                        <a href="https://github.com/kumarsuresh03/portfol.git" target="_blank" class="mt-4 inline-flex items-center text-teal-500 hover:text-teal-700 text-sm font-semibold transition">
-                            View Project on GitHub
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-
-                    <!-- Scalable Web-Hosting Project -->
-                    <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-100 dynamic-card">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Scalable and Secure Web-Hosting in AWS</h3>
-                        <p class="text-sm font-medium text-teal-600 mb-3">Domain: AWS | Services: EC2, Load Balancer, Auto Scaling, VPC</p>
-                        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                            <li>Created VPC across two AZs with private subnets and NAT Gateways.</li>
-                            <li>Launched an **Auto Scaling Group** and **Load Balancer** to distribute traffic across private EC2 instances running Apache Server.</li>
-                            <li>Implemented a Bastion Host for secure access to private instances.</li>
-                        </ul>
-                        <a href="https://github.com/kumarsuresh03/AWS-project.gi" target="_blank" class="mt-4 inline-flex items-center text-teal-500 hover:text-teal-700 text-sm font-semibold transition">
-                            View Project on GitHub
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Education & Certifications -->
-            <section>
-                <h2 class="section-title text-3xl">Education & Certifications</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <!-- Education Card -->
-                    <div class="p-5 bg-white rounded-xl shadow-lg border border-gray-100 dynamic-card">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center">
-                            <i data-lucide="graduation-cap" class="w-5 h-5 mr-2 text-teal-500"></i> Education
-                        </h3>
-                        <div class="space-y-3 text-sm">
+                    <!-- Boostr Netwave moved here as a contract/project role, treated like an internship for placement -->
+                    <div class="exp-card p-6 rounded-xl shadow-lg border-l-4 border-amber-500">
+                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
                             <div>
-                                <p class="font-bold">B.Tech - Computer Science and Engineering (68%)</p>
-                                <p class="text-gray-600">Lovely Professional University, Jalandhar, Punjab</p>
-                                <p class="text-xs text-gray-500">August 2021 – May 2025</p>
+                                <h4 class="text-xl font-bold text-gray-800">Cloud DevOps Engineer (Project/Contract)</h4>
+                                <p class="text-lg text-gray-600">Boostr Netwave (Odisha)</p>
                             </div>
-                            <div>
-                                <p class="font-bold">Intermediate (93.1%)</p>
-                                <p class="text-gray-600">Sri Chaitanya Junior College, Nizampet, Telengana</p>
-                            </div>
+                            <span class="mt-2 md:mt-0 text-sm font-medium bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Aug 2024 – Nov 2024</span>
+                        </div>
+                        <ul class="achievement-list text-gray-700 text-base mt-3">
+                            <li>Managed workloads on **Google Kubernetes Engine (GKE)** using Helm and GCP-native services like Cloud Load Balancing.</li>
+                            <li>Created **IaC templates with Terraform and Ansible** to provision GCP infrastructure (Compute Engine, Cloud Storage, VPCs, and IAM policies).</li>
+                            <li>Automated deployment workflows using **Python scripts** to handle dynamic resource provisioning.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="py-10">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- CI/CD Pipeline Project -->
+                <div class="p-6 bg-white rounded-xl shadow-xl border-t-4 border-teal-500 exp-card">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">End To End CI/CD Pipeline</h3>
+                    <p class="text-sm font-medium text-teal-600 mb-4">Domain: DevOps | Tools: Jenkins, Sonarqube, AWS ECS</p>
+                    <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+                        <li>Built a robust CI/CD pipeline using **Jenkins, Docker, and GitHub Actions** to automate deployment to AWS ECS.</li>
+                        <li>Engineered pipelines integrating **SonarCloud**, reducing deployment time by 25% and improving code quality.</li>
+                        <li>Designed monitoring using **Amazon CloudWatch and SNS**, reducing incident response time by 30%.</li>
+                    </ul>
+                    <a href="https://github.com/kumarsuresh03/portfol.git" target="_blank" class="mt-4 inline-flex items-center text-teal-500 hover:text-teal-700 text-base font-semibold transition">
+                        View Project
+                        <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Scalable Web-Hosting Project -->
+                <div class="p-6 bg-white rounded-xl shadow-xl border-t-4 border-teal-500 exp-card">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Scalable and Secure Web-Hosting in AWS</h3>
+                    <p class="text-sm font-medium text-teal-600 mb-4">Domain: AWS | Services: EC2, Load Balancer, Auto Scaling, VPC</p>
+                    <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+                        <li>Created VPC across two AZs with private subnets and NAT Gateways.</li>
+                        <li>Launched an **Auto Scaling Group** and **Load Balancer** to distribute traffic across private EC2 instances running Apache Server.</li>
+                        <li>Implemented a Bastion Host for secure access to private instances.</li>
+                    </ul>
+                    <a href="https://github.com/kumarsuresh03/AWS-project.gi" target="_blank" class="mt-4 inline-flex items-center text-teal-500 hover:text-teal-700 text-base font-semibold transition">
+                        View Project
+                        <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section id="education" class="py-10">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Education Card -->
+                <div class="p-6 bg-white rounded-xl shadow-xl border-l-4 border-gray-400 exp-card">
+                    <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                        <i data-lucide="graduation-cap" class="w-5 h-5 mr-2 text-teal-500"></i> Education History
+                    </h3>
+                    <div class="space-y-4 text-base">
+                        <div>
+                            <p class="font-bold text-gray-900">B.Tech - Computer Science and Engineering (68%)</p>
+                            <p class="text-gray-600">Lovely Professional University, Jalandhar, Punjab</p>
+                            <p class="text-xs text-gray-500">August 2021 – May 2025</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Intermediate (93.1%)</p>
+                            <p class="text-gray-600">Sri Chaitanya Junior College, Nizampet, Telengana</p>
                         </div>
                     </div>
-
-                    <!-- Certifications Card -->
-                    <div class="p-5 bg-white rounded-xl shadow-lg border border-gray-100 dynamic-card">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center">
-                            <i data-lucide="award" class="w-5 h-5 mr-2 text-teal-500"></i> Certifications
-                        </h3>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>AWS Academy Graduate (Dec ’23)</li>
-                            <li>EDX – IBM Cloud Essentials (Nov ’23)</li>
-                            <li>EDX – DevOps (April ’23)</li>
-                            <li>Udemy – Python Programming (Dec ’22)</li>
-                            <li>Udemy – Computer Networking (Nov ’23)</li>
-                        </ul>
-                    </div>
                 </div>
-            </section>
 
-        </main>
-        
-        <!-- Footer -->
-        <footer class="bg-gray-800 text-center p-4 text-xs text-gray-400 rounded-b-xl">
-            Portfolio designed and generated based on N. Kumar Suresh's professional profile.
-            <br>Built with modern HTML and Tailwind CSS.
-        </footer>
+                <!-- Certifications Card -->
+                <div class="p-6 bg-white rounded-xl shadow-xl border-l-4 border-gray-400 exp-card">
+                    <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                        <i data-lucide="award" class="w-5 h-5 mr-2 text-teal-500"></i> Certifications & Training
+                    </h3>
+                    <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                        <li>AWS Academy Graduate (Dec ’23)</li>
+                        <li>EDX – IBM Cloud Essentials (Nov ’23)</li>
+                        <li>EDX – DevOps (April ’23)</li>
+                        <li>Udemy – Python Programming (Dec ’22)</li>
+                        <li>Udemy – Computer Networking (Nov ’23)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacer for footer -->
+        <div id="contact" class="pb-12"></div>
+
     </div>
+    
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-center p-6 text-sm text-gray-400">
+        <p>&copy; 2024 N. Kumar Suresh. All rights reserved.</p>
+        <p class="mt-2 text-xs">DevOps Portfolio built with HTML/Tailwind CSS.</p>
+    </footer>
     
     <!-- Initialize Lucide Icons -->
     <script>
