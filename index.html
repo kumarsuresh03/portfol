@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>N. Kumar Suresh – DevOps & Cloud Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
 :root {
@@ -22,7 +22,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
@@ -56,7 +56,7 @@ nav {
     padding: 0 3rem;
 }
 .nav-logo {
-    font-family: 'Space Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 0.82rem;
     color: var(--accent);
     letter-spacing: 0.12em;
@@ -65,9 +65,9 @@ nav {
 }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
     text-decoration: none;
@@ -101,9 +101,9 @@ nav {
 .hero-right { flex: 0 0 400px; }
 
 .hero-badge {
-    font-family: 'Space Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 0.68rem;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.18em;
     color: var(--accent);
     text-transform: uppercase;
     margin-bottom: 2rem;
@@ -119,20 +119,20 @@ nav {
     flex-shrink: 0;
 }
 .hero-name {
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: -0.04em;
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
     color: #fff;
     margin-bottom: 1.5rem;
 }
 .hero-name .ac { color: var(--accent); }
 .hero-tagline {
-    font-size: 1rem;
-    color: var(--muted);
+    font-size: 1.05rem;
+    color: #8a92a6;
     font-weight: 400;
-    line-height: 1.7;
-    max-width: 440px;
+    line-height: 1.75;
+    max-width: 460px;
     margin-bottom: 2.5rem;
 }
 .hero-contacts { display: flex; flex-wrap: wrap; gap: 0.6rem; }
@@ -177,12 +177,12 @@ nav {
 }
 .stat-cell:hover { background: var(--surface2); }
 .stat-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 3rem;
-    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+    font-size: 2.5rem;
+    font-weight: 500;
     color: #fff;
     line-height: 1;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
 }
 .stat-num em { font-style: normal; color: var(--accent); font-size: 2rem; }
 .stat-lbl {
@@ -204,7 +204,7 @@ nav {
     margin: 0 auto;
 }
 .s-label {
-    font-family: 'Space Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.3em;
     color: var(--accent);
@@ -213,9 +213,9 @@ nav {
     opacity: 0.85;
 }
 .s-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 900;
-    letter-spacing: -0.03em;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: #fff;
     margin-bottom: 3rem;
     line-height: 1.1;
@@ -230,7 +230,7 @@ nav {
     border-radius: 10px;
     padding: 2.5rem 3rem;
 }
-.summary-card p { font-size: 1.05rem; line-height: 1.9; color: #a0a8b8; }
+.summary-card p { font-size: 1.05rem; line-height: 1.9; color: #9aa3b8; font-weight: 400; }
 .summary-card strong { color: var(--accent); font-weight: 700; }
 
 /* SKILLS */
@@ -251,17 +251,17 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 800;
+    font-size: 0.72rem;
+    font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #fff;
+    color: #c8cfe0;
     margin-bottom: 1rem;
 }
 .skill-card-hd svg { width: 14px; height: 14px; color: var(--accent); }
 .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tag {
-    font-family: 'Space Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 0.65rem;
     padding: 0.28rem 0.65rem;
     border-radius: 4px;
@@ -312,11 +312,11 @@ nav {
     flex-wrap: wrap;
     margin-bottom: 1.2rem;
 }
-.exp-title { font-size: 1.05rem; font-weight: 800; color: #fff; }
+.exp-title { font-size: 1.05rem; font-weight: 700; color: #fff; }
 .exp-co { font-size: 0.85rem; color: var(--accent); font-weight: 700; margin-top: 0.2rem; }
 .exp-co.blue { color: var(--accent2); }
 .exp-period {
-    font-family: 'Space Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 0.65rem;
     color: var(--muted);
     background: var(--surface2);
@@ -339,7 +339,7 @@ nav {
 .exp-list.blue li::before { color: var(--accent2); }
 .exp-list li strong { color: var(--text); font-weight: 700; }
 .sub-hd {
-    font-family: 'Space Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.2em;
@@ -365,7 +365,7 @@ nav {
 }
 .proj-card:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-4px); }
 .proj-tag {
-    font-family: 'Space Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 0.62rem;
     letter-spacing: 0.15em;
     color: var(--accent3);
@@ -415,7 +415,7 @@ nav {
 .edu-item:last-child { margin-bottom: 0; }
 .edu-deg { font-size: 0.9rem; font-weight: 800; color: #fff; line-height: 1.3; }
 .edu-school { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
-.edu-date { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #3a3f50; margin-top: 0.3rem; }
+.edu-date { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: #3a3f50; margin-top: 0.3rem; }
 .cert-list { list-style: none; }
 .cert-list li {
     display: flex;
@@ -444,8 +444,8 @@ nav {
     gap: 1rem;
 }
 footer { border-top: 1px solid var(--border); position: relative; z-index: 1; }
-footer p { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); }
-footer a { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--accent); text-decoration: none; }
+footer p { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); }
+footer a { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent); text-decoration: none; }
 
 /* REVEAL */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
