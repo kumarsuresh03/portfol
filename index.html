@@ -3,391 +3,805 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N. Kumar Suresh - DevOps & Cloud Engineer Portfolio</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Lucide icons for professional look -->
+    <title>N. Kumar Suresh – DevOps & Cloud Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Custom styles for professional typography and spacing */
+        :root {
+            --bg: #0a0a0f;
+            --surface: #111118;
+            --surface2: #1a1a24;
+            --border: rgba(255,255,255,0.07);
+            --accent: #00e5a0;
+            --accent2: #5b6af7;
+            --accent3: #ff6b35;
+            --text: #e8e8f0;
+            --muted: #7a7a99;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f7f9; /* Light background for web feel */
-            scroll-behavior: smooth; /* Smooth scrolling for navigation links */
-            padding-top: 4rem; /* Offset for the sticky header */
-        }
-        
-        /* Sticky Header */
-        #navbar {
-            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
-            z-index: 1000;
+            font-family: 'Syne', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
         }
 
-        /* Section Title Underline Accent */
-        .section-title {
-            position: relative;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            font-weight: 800;
-            color: #1f2937; /* Dark Gray */
-            font-size: 2.25rem; /* Text-4xl equivalent */
-        }
-        .section-title::after {
+        /* ── GRID BACKGROUND ── */
+        body::before {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px; /* Longer line */
-            height: 4px;
-            background-color: #0d9488; /* Teal Accent */
-            border-radius: 2px;
-        }
-        
-        /* Custom list style for experience points */
-        .achievement-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .achievement-list li::before {
-            content: '✓'; 
-            position: absolute;
-            left: 0;
-            color: #10b981; 
-            font-weight: bold;
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        /* Skill Tag styles */
-        .tag-container {
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(10,10,15,0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* ── WRAPPER ── */
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 60px;
+        }
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+        .hero-badge {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .hero-badge::before {
+            content: '';
+            display: inline-block;
+            width: 2rem;
+            height: 1px;
+            background: var(--accent);
+        }
+        h1.hero-name {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            color: #fff;
+        }
+        h1.hero-name span { color: var(--accent); }
+        .hero-role {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 420px;
+        }
+        .hero-contacts {
+            margin-top: 2.5rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            padding-top: 0.5rem;
+            gap: 0.75rem;
         }
-        .skill-tag {
+        .hero-contacts a {
             display: inline-flex;
             align-items: center;
-            padding: 0.35rem 1rem; 
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            transition: background-color 0.3s;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            text-decoration: none;
+            background: var(--surface);
+            transition: all 0.2s;
         }
-        /* Experience Card Styling */
+        .hero-contacts a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0,229,160,0.05);
+        }
+        .hero-contacts a svg { width: 14px; height: 14px; }
+
+        /* STATS PANEL */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .stat-box {
+            background: var(--surface);
+            padding: 2rem 1.5rem;
+            transition: background 0.2s;
+        }
+        .stat-box:hover { background: var(--surface2); }
+        .stat-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+        .stat-num span { color: var(--accent); }
+        .stat-label {
+            margin-top: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--muted);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ── SECTIONS ── */
+        section { padding: 6rem 0; }
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        h2.section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 3rem;
+        }
+        h2.section-title em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        /* ── SUMMARY ── */
+        .summary-box {
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+        .summary-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #b8b8d0;
+        }
+        .summary-box strong { color: var(--accent); font-weight: 700; }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .skill-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        .skill-card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .skill-card-title svg { width: 16px; height: 16px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 3px;
+            border: 1px solid rgba(0,229,160,0.2);
+            background: rgba(0,229,160,0.05);
+            color: #99e8c8;
+        }
+
+        /* ── EXPERIENCE ── */
+        .exp-timeline { position: relative; padding-left: 2rem; }
+        .exp-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+        .exp-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.35rem;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 12px var(--accent);
+        }
         .exp-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: white;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.75rem 2rem;
+            transition: border-color 0.2s;
         }
-        .exp-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .exp-card:hover { border-color: rgba(0,229,160,0.3); }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .exp-title { font-size: 1.1rem; font-weight: 800; color: #fff; }
+        .exp-company { font-size: 0.9rem; color: var(--accent); font-weight: 700; margin-top: 0.15rem; }
+        .exp-period {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--muted);
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .exp-list { list-style: none; }
+        .exp-list li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.88rem;
+            color: #9090b0;
+            line-height: 1.6;
+        }
+        .exp-list li::before {
+            content: '›';
+            position: absolute; left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .exp-list li strong { color: var(--text); font-weight: 700; }
+
+        /* Interns section header */
+        .sub-section-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin: 3rem 0 1.5rem;
+            font-family: 'Space Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .sub-section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Intern dot color */
+        .exp-item.intern::before { background: var(--accent2); box-shadow: 0 0 12px var(--accent2); }
+        .exp-item.intern .exp-company { color: var(--accent2); }
+        .exp-timeline.intern-line::before { background: linear-gradient(to bottom, var(--accent2), transparent); }
+
+        /* ── PROJECTS ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.75rem;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            border-color: rgba(0,229,160,0.3);
+            transform: translateY(-4px);
+        }
+        .project-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--accent3);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .project-title { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem; }
+        .project-desc { font-size: 0.85rem; color: #8080a0; line-height: 1.7; flex: 1; }
+        .project-link {
+            margin-top: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.08em;
+        }
+        .project-link:hover { gap: 0.7rem; }
+        .project-link svg { width: 14px; height: 14px; transition: transform 0.2s; }
+        .project-link:hover svg { transform: translateX(3px); }
+
+        /* ── EDUCATION & CERTS ── */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .edu-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.75rem;
+        }
+        .edu-card-title {
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .edu-card-title svg { width: 14px; height: 14px; color: var(--accent); }
+        .edu-item { margin-bottom: 1.25rem; }
+        .edu-item:last-child { margin-bottom: 0; }
+        .edu-degree { font-size: 0.9rem; font-weight: 800; color: #fff; }
+        .edu-school { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+        .edu-date { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: #5a5a70; margin-top: 0.2rem; }
+        .cert-list { list-style: none; }
+        .cert-list li {
+            font-size: 0.85rem;
+            color: #8080a0;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cert-list li:last-child { border-bottom: none; }
+        .cert-list li::before { content: '▸'; color: var(--accent); font-size: 0.7rem; }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-stats { display: none; }
+            .edu-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            h2.section-title { font-size: 1.8rem; }
+        }
+
+        /* ── SCROLL REVEAL (lightweight) ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- STICKY NAVIGATION BAR (Full Website Look) -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-gray-900 text-white p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#hero" class="text-xl font-extrabold text-teal-300 hover:text-teal-400 transition">N. Kumar Suresh</a>
-            <div class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#summary" class="hover:text-teal-300 transition">Summary</a>
-                <a href="#experience" class="hover:text-teal-300 transition">Experience</a>
-                <a href="#skills" class="hover:text-teal-300 transition">Skills</a>
-                <a href="#projects" class="hover:text-teal-300 transition">Projects</a>
-                <a href="#contact" class="hover:text-teal-300 transition">Contact</a>
+<nav>
+    <a href="#hero" class="nav-logo">N.KUMAR.SURESH</a>
+    <ul class="nav-links">
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="wrapper">
+        <div class="hero-inner">
+            <div>
+                <div class="hero-badge">Available for opportunities</div>
+                <h1 class="hero-name">N. Kumar<br><span>Suresh</span></h1>
+                <p class="hero-role">DevOps Engineer · Cloud Reliability Specialist · Kubernetes & Infrastructure Automation Expert</p>
+                <div class="hero-contacts">
+                    <a href="mailto:sureshnangina@gmail.com">
+                        <i data-lucide="mail"></i> sureshnangina@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/n-suresh-kumar" target="_blank">
+                        <i data-lucide="linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/kumarsuresh03" target="_blank">
+                        <i data-lucide="github"></i> GitHub
+                    </a>
+                    <a href="tel:+919581972030">
+                        <i data-lucide="phone"></i> +91-9581972030
+                    </a>
+                </div>
             </div>
-            <!-- Mobile Menu Placeholder (can be expanded later) -->
-            <button class="md:hidden text-teal-300 hover:text-teal-400 transition">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <div class="stat-num">2<span>+</span></div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">30<span>%</span></div>
+                    <div class="stat-label">Cloud Cost Reduced</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">35<span>%</span></div>
+                    <div class="stat-label">MTTR Improved</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">20<span>+</span></div>
+                    <div class="stat-label">Microservices Managed</div>
+                </div>
+            </div>
         </div>
-    </nav>
-    
-    <!-- MAIN CONTENT CONTAINER (Max width for readability) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
-
-        <!-- HERO SECTION (Replaces old header structure) -->
-        <section id="hero" class="pt-16 pb-12 text-center bg-gray-100 rounded-lg shadow-xl mt-8">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">N. Kumar Suresh</h1>
-            <p class="text-2xl md:text-3xl font-light text-teal-600 mt-2">Highly Accomplished DevOps & Cloud Engineer</p>
-            
-            <div class="mt-8 flex justify-center flex-wrap gap-x-8 gap-y-4 text-sm font-medium">
-                <!-- Contact Info as Hero Callouts -->
-                <a href="https://linkedin.com/in/n-suresh-kumar" target="_blank" class="flex items-center text-gray-700 hover:text-blue-600 transition">
-                    <i data-lucide="linkedin" class="w-5 h-5 mr-2"></i>
-                    LinkedIn
-                </a>
-                <a href="https://github.com/kumarsuresh03" target="_blank" class="flex items-center text-gray-700 hover:text-gray-900 transition">
-                    <i data-lucide="github" class="w-5 h-5 mr-2"></i>
-                    GitHub
-                </a>
-                <a href="mailto:sureshnangina@gmail.com" class="flex items-center text-gray-700 hover:text-red-500 transition">
-                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
-                    sureshnangina@gmail.com
-                </a>
-                <a href="tel:+919581972030" class="flex items-center text-gray-700 hover:text-green-600 transition">
-                    <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
-                    +91-9581972030
-                </a>
-            </div>
-        </section>
-
-        <!-- Professional Summary -->
-        <section id="summary" class="py-10">
-            <h2 class="section-title">Professional Summary</h2>
-            <div class="p-6 bg-teal-50 rounded-xl shadow-lg border-l-4 border-teal-500">
-                <p class="text-lg text-gray-700 leading-relaxed italic">
-                    Highly accomplished **DevOps & Cloud Engineer** with nearly two years of experience managing production infrastructure across AWS. Expert in **Kubernetes EKS** and **Terraform**. Proven track record of leveraging AIOps (Dynatrace) to improve **MTTR by 35%** and reduce monthly cloud costs by **30%**, ensuring cost-optimized and highly reliable deployments.
-                </p>
-            </div>
-        </section>
-        
-        <!-- Skills -->
-        <section id="skills" class="py-10">
-            <h2 class="section-title">Expertise & Technologies</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Skill Group Card 1: Cloud Platforms -->
-                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
-                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
-                        <i data-lucide="cloud" class="w-6 h-6 mr-2 text-blue-500"></i> Cloud Platforms
-                    </h3>
-                    <div class="tag-container">
-                        <span class="skill-tag bg-sky-100 text-sky-800">AWS</span>
-                        <span class="skill-tag bg-green-100 text-green-800">GCP</span>
-                        <span class="skill-tag bg-sky-100 text-sky-800">EC2, ECS, ECR</span>
-                        <span class="skill-tag bg-gray-100 text-gray-800">RDS, ElastiCache</span>
-                        <span class="skill-tag bg-gray-100 text-gray-800">IAM, VPC</span>
-                    </div>
-                </div>
-
-                <!-- Skill Group Card 2: Containerization & Orchestration -->
-                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
-                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
-                        <i data-lucide="package" class="w-6 h-6 mr-2 text-indigo-500"></i> Containerization & Orchestration
-                    </h3>
-                    <div class="tag-container">
-                        <span class="skill-tag bg-indigo-100 text-indigo-800">Docker</span>
-                        <span class="skill-tag bg-indigo-100 text-indigo-800">Kubernetes (EKS/GKE)</span>
-                        <span class="skill-tag bg-indigo-100 text-indigo-800">Helm</span>
-                        <span class="skill-tag bg-indigo-100 text-indigo-800">ArgoCD (GitOps)</span>
-                    </div>
-                </div>
-
-                <!-- Skill Group Card 3: CI/CD & IaC -->
-                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
-                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
-                        <i data-lucide="layout-grid" class="w-6 h-6 mr-2 text-purple-500"></i> CI/CD & IaC
-                    </h3>
-                    <div class="tag-container">
-                        <span class="skill-tag bg-purple-100 text-purple-800">Terraform</span>
-                        <span class="skill-tag bg-purple-100 text-purple-800">Jenkins</span>
-                        <span class="skill-tag bg-purple-100 text-purple-800">GitHub Actions</span>
-                        <span class="skill-tag bg-purple-100 text-purple-800">Python/Shell</span>
-                        <span class="skill-tag bg-purple-100 text-purple-800">Maven</span>
-                    </div>
-                </div>
-
-                <!-- Skill Group Card 4: Monitoring & Networking -->
-                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
-                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
-                        <i data-lucide="activity" class="w-6 h-6 mr-2 text-red-500"></i> Monitoring & Networking
-                    </h3>
-                    <div class="tag-container">
-                        <span class="skill-tag bg-red-100 text-red-800">Grafana, Prometheus</span>
-                        <span class="skill-tag bg-red-100 text-red-800">CloudWatch, Logging</span>
-                        <span class="skill-tag bg-red-100 text-red-800">Dynatrace (AIOps)</span>
-                        <span class="skill-tag bg-red-100 text-red-800">TCP/IP, DNS</span>
-                    </div>
-                </div>
-                
-                <!-- Skill Group Card 5: Soft Skills & Other -->
-                <div class="p-5 border border-gray-200 rounded-xl shadow-lg bg-white exp-card">
-                    <h3 class="flex items-center text-xl font-bold text-gray-800 mb-2">
-                        <i data-lucide="user-check" class="w-6 h-6 mr-2 text-yellow-600"></i> Other & Soft Skills
-                    </h3>
-                    <div class="tag-container">
-                        <span class="skill-tag bg-yellow-100 text-yellow-800">Kubeflow (MLOps)</span>
-                        <span class="skill-tag bg-yellow-100 text-yellow-800">Problem-Solving</span>
-                        <span class="skill-tag bg-yellow-100 text-yellow-800">Leadership</span>
-                        <span class="skill-tag bg-gray-100 text-gray-800">MongoDB, Redis</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Experience -->
-        <section id="experience" class="py-10">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="space-y-8">
-
-                <!-- Geta.ai -->
-                <div class="exp-card p-6 rounded-xl shadow-lg border-l-4 border-teal-500">
-                    <div class="flex flex-col md:flex-row justify-between items-start mb-2">
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800">DevOps Engineer</h3>
-                            <p class="text-lg text-gray-600">Geta.ai</p>
-                        </div>
-                        <span class="mt-2 md:mt-0 text-sm font-medium bg-teal-100 text-teal-800 px-3 py-1 rounded-full">July 2025 - Present</span>
-                    </div>
-                    <ul class="achievement-list text-gray-700 text-base mt-3">
-                        <li>Architected and managed a production-grade AWS environment (S3 + CloudFront, Amazon EKS, Lambda, MongoDB, Redis ElastiCache), ensuring **99.9% uptime**.</li>
-                        <li>Enhanced monitoring through **AIOps-driven observability** (Dynatrace Davis AI) for log anomaly detection and AI-based root-cause analysis, **improving MTTR by 35%**.</li>
-                        <li>Optimized AWS resource utilization (EKS, S3, Lambda, RDS, MongoDB), achieving a **30% reduction in monthly cloud costs** while maintaining high availability.</li>
-                        <li>Provisioned and managed infrastructure using **Terraform**, automating VPC, IAM, EKS, and RDS for consistent deployments.</li>
-                        <li>Implemented **Redis ElastiCache** for session management, reducing database load by 40% and improving API response times by 50%.</li>
-                    </ul>
-                </div>
-
-                <!-- NestIndia -->
-                <div class="exp-card p-6 rounded-xl shadow-lg border-l-4 border-teal-500">
-                    <div class="flex flex-col md:flex-row justify-between items-start mb-2">
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800">DevOps Engineer (Project/Contract)</h3>
-                            <p class="text-lg text-gray-600">NestIndia()</p>
-                        </div>
-                        <span class="mt-2 md:mt-0 text-sm font-medium bg-teal-100 text-teal-800 px-3 py-1 rounded-full">Nov 2024 – June 2025</span>
-                    </div>
-                    <ul class="achievement-list text-gray-700 text-base mt-3">
-                        <li>Orchestrated containerized deployments on **Amazon EKS** using **Helm** and **Ingress Controller**, ensuring high availability and scalability.</li>
-                        <li>Implemented end-to-end CI/CD pipelines using GitHub, **Jenkins**, and AWS ECR to automate build, test, and deployment workflows.</li>
-                        <li>Developed and integrated a comprehensive monitoring and alerting framework with **Prometheus and Grafana** for proactive issue detection.</li>
-                        <li>Automated application deployments on EKS using **ArgoCD** integrated with AWS ECR and GitHub, enabling seamless GitOps-based delivery.</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Internships Section -->
-            <div class="pt-10">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-amber-300 pb-2">Internships</h3>
-                <div class="space-y-8">
-                    <!-- TechInnovate Internship Card -->
-                    <div class="exp-card p-6 rounded-xl shadow-lg border-l-4 border-amber-500">
-                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-800">DevOps Intern</h4>
-                                <p class="text-lg text-gray-600">TechInnovate Solutions</p>
-                            </div>
-                            <span class="mt-2 md:mt-0 text-sm font-medium bg-amber-100 text-amber-800 px-3 py-1 rounded-full">May 2024 – July 2024</span>
-                        </div>
-                        <ul class="achievement-list text-gray-700 text-base mt-3">
-                            <li>Assisted in migrating two legacy applications to **Docker containers**, standardizing the build and deployment process.</li>
-                            <li>Developed **Shell scripts** for automating daily database backup and log rotation tasks across production EC2 instances.</li>
-                            <li>Collaborated with the engineering team to deploy initial monitoring dashboards using **Prometheus**, gaining hands-on experience with system metrics.</li>
-                        </ul>
-                    </div>
-                    <!-- Boostr Netwave moved here as a contract/project role, treated like an internship for placement -->
-                    <div class="exp-card p-6 rounded-xl shadow-lg border-l-4 border-amber-500">
-                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-800">Cloud DevOps Engineer (Project/Contract)</h4>
-                                <p class="text-lg text-gray-600">Boostr Netwave (Odisha)</p>
-                            </div>
-                            <span class="mt-2 md:mt-0 text-sm font-medium bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Aug 2024 – Nov 2024</span>
-                        </div>
-                        <ul class="achievement-list text-gray-700 text-base mt-3">
-                            <li>Managed workloads on **Google Kubernetes Engine (GKE)** using Helm and GCP-native services like Cloud Load Balancing.</li>
-                            <li>Created **IaC templates with Terraform and Ansible** to provision GCP infrastructure (Compute Engine, Cloud Storage, VPCs, and IAM policies).</li>
-                            <li>Automated deployment workflows using **Python scripts** to handle dynamic resource provisioning.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects" class="py-10">
-            <h2 class="section-title">Key Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- CI/CD Pipeline Project -->
-                <div class="p-6 bg-white rounded-xl shadow-xl border-t-4 border-teal-500 exp-card">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">End To End CI/CD Pipeline</h3>
-                    <p class="text-sm font-medium text-teal-600 mb-4">Domain: DevOps | Tools: Jenkins, Sonarqube, AWS ECS</p>
-                    <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                        <li>Built a robust CI/CD pipeline using **Jenkins, Docker, and GitHub Actions** to automate deployment to AWS ECS.</li>
-                        <li>Engineered pipelines integrating **SonarCloud**, reducing deployment time by 25% and improving code quality.</li>
-                        <li>Designed monitoring using **Amazon CloudWatch and SNS**, reducing incident response time by 30%.</li>
-                    </ul>
-                    <a href="https://github.com/kumarsuresh03/portfol.git" target="_blank" class="mt-4 inline-flex items-center text-teal-500 hover:text-teal-700 text-base font-semibold transition">
-                        View Project
-                        <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
-                    </a>
-                </div>
-
-                <!-- Scalable Web-Hosting Project -->
-                <div class="p-6 bg-white rounded-xl shadow-xl border-t-4 border-teal-500 exp-card">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Scalable and Secure Web-Hosting in AWS</h3>
-                    <p class="text-sm font-medium text-teal-600 mb-4">Domain: AWS | Services: EC2, Load Balancer, Auto Scaling, VPC</p>
-                    <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                        <li>Created VPC across two AZs with private subnets and NAT Gateways.</li>
-                        <li>Launched an **Auto Scaling Group** and **Load Balancer** to distribute traffic across private EC2 instances running Apache Server.</li>
-                        <li>Implemented a Bastion Host for secure access to private instances.</li>
-                    </ul>
-                    <a href="https://github.com/kumarsuresh03/AWS-project.gi" target="_blank" class="mt-4 inline-flex items-center text-teal-500 hover:text-teal-700 text-base font-semibold transition">
-                        View Project
-                        <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Education & Certifications -->
-        <section id="education" class="py-10">
-            <h2 class="section-title">Education & Certifications</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- Education Card -->
-                <div class="p-6 bg-white rounded-xl shadow-xl border-l-4 border-gray-400 exp-card">
-                    <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
-                        <i data-lucide="graduation-cap" class="w-5 h-5 mr-2 text-teal-500"></i> Education History
-                    </h3>
-                    <div class="space-y-4 text-base">
-                        <div>
-                            <p class="font-bold text-gray-900">B.Tech - Computer Science and Engineering (68%)</p>
-                            <p class="text-gray-600">Lovely Professional University, Jalandhar, Punjab</p>
-                            <p class="text-xs text-gray-500">August 2021 – May 2025</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-900">Intermediate (93.1%)</p>
-                            <p class="text-gray-600">Sri Chaitanya Junior College, Nizampet, Telengana</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certifications Card -->
-                <div class="p-6 bg-white rounded-xl shadow-xl border-l-4 border-gray-400 exp-card">
-                    <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
-                        <i data-lucide="award" class="w-5 h-5 mr-2 text-teal-500"></i> Certifications & Training
-                    </h3>
-                    <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
-                        <li>AWS Academy Graduate (Dec ’23)</li>
-                        <li>EDX – IBM Cloud Essentials (Nov ’23)</li>
-                        <li>EDX – DevOps (April ’23)</li>
-                        <li>Udemy – Python Programming (Dec ’22)</li>
-                        <li>Udemy – Computer Networking (Nov ’23)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Spacer for footer -->
-        <div id="contact" class="pb-12"></div>
-
     </div>
-    
-    <!-- FOOTER -->
-    <footer class="bg-gray-900 text-center p-6 text-sm text-gray-400">
-        <p>&copy; 2024 N. Kumar Suresh. All rights reserved.</p>
-        <p class="mt-2 text-xs">DevOps Portfolio built with HTML/Tailwind CSS.</p>
-    </footer>
-    
-    <!-- Initialize Lucide Icons -->
-    <script>
-        lucide.createIcons();
-    </script>
+</section>
 
+<!-- SUMMARY -->
+<section id="summary">
+    <div class="wrapper reveal">
+        <div class="section-label">01 — Overview</div>
+        <h2 class="section-title">Professional <em>Summary</em></h2>
+        <div class="summary-box">
+            <p>Highly accomplished <strong>DevOps & Cloud Engineer</strong> with 2 years of experience managing production infrastructure across <strong>AWS and GCP</strong>. Expert in <strong>Kubernetes (EKS/GKE)</strong>, <strong>Terraform IaC</strong>, GitOps (ArgoCD), and CI/CD automation. Proven track record of leveraging <strong>AIOps (Dynatrace)</strong> to improve MTTR by 35% and reduce monthly cloud costs by 30%, ensuring cost-optimized and highly reliable deployments with <strong>99.9% uptime</strong> for 20+ microservices.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="wrapper reveal">
+        <div class="section-label">02 — Expertise</div>
+        <h2 class="section-title">Technical <em>Skills</em></h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-card-title"><i data-lucide="cloud"></i> Cloud Platforms</div>
+                <div class="tags">
+                    <span class="tag">AWS EKS</span>
+                    <span class="tag">EC2</span>
+                    <span class="tag">S3</span>
+                    <span class="tag">RDS</span>
+                    <span class="tag">IAM</span>
+                    <span class="tag">VPC</span>
+                    <span class="tag">CloudWatch</span>
+                    <span class="tag">CloudFront</span>
+                    <span class="tag">Route53</span>
+                    <span class="tag">ALB</span>
+                    <span class="tag">GKE</span>
+                    <span class="tag">Compute Engine</span>
+                    <span class="tag">Cloud Run</span>
+                    <span class="tag">Cloud Storage</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-title"><i data-lucide="package"></i> Containers & K8s</div>
+                <div class="tags">
+                    <span class="tag">Docker</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">EKS</span>
+                    <span class="tag">GKE</span>
+                    <span class="tag">NGINX Ingress</span>
+                    <span class="tag">Helm</span>
+                    <span class="tag">ArgoCD</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-title"><i data-lucide="git-branch"></i> CI/CD & IaC</div>
+                <div class="tags">
+                    <span class="tag">Jenkins</span>
+                    <span class="tag">GitHub Actions</span>
+                    <span class="tag">Terraform</span>
+                    <span class="tag">Bash</span>
+                    <span class="tag">SonarQube</span>
+                    <span class="tag">AWS ECR</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-title"><i data-lucide="activity"></i> Monitoring & Observability</div>
+                <div class="tags">
+                    <span class="tag">Dynatrace (AIOps)</span>
+                    <span class="tag">Prometheus</span>
+                    <span class="tag">Grafana</span>
+                    <span class="tag">CloudWatch</span>
+                    <span class="tag">GCP Monitoring</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-title"><i data-lucide="database"></i> Databases</div>
+                <div class="tags">
+                    <span class="tag">MongoDB (Replica Sets)</span>
+                    <span class="tag">PostgreSQL (RDS)</span>
+                    <span class="tag">Redis (ElastiCache)</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-title"><i data-lucide="network"></i> Networking</div>
+                <div class="tags">
+                    <span class="tag">HTTP/HTTPS</span>
+                    <span class="tag">DNS</span>
+                    <span class="tag">VPC</span>
+                    <span class="tag">Security Groups</span>
+                    <span class="tag">Load Balancers</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="wrapper reveal">
+        <div class="section-label">03 — Work History</div>
+        <h2 class="section-title">Professional <em>Experience</em></h2>
+
+        <div class="exp-timeline">
+            <!-- Geta.ai -->
+            <div class="exp-item">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">DevOps Engineer</div>
+                            <div class="exp-company">Geta.ai — Pune, India</div>
+                        </div>
+                        <span class="exp-period">Jul 2025 – Present</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Architected production-grade AWS infrastructure with <strong>S3 + CloudFront</strong> frontend, <strong>20+ EKS microservices</strong>, Lambda functions, MongoDB 3-node replica set, and Redis ElastiCache — ensuring <strong>99.9% uptime</strong></li>
+                        <li>Achieved <strong>30% reduction in monthly cloud costs</strong> ($600+ savings) through strategic optimization of EKS, Lambda, S3, CloudFront, RDS, MongoDB, and ElastiCache resource utilization</li>
+                        <li>Enhanced observability using <strong>Dynatrace AIOps</strong> for anomaly detection, AI-driven root cause analysis, and predictive insights — improving <strong>MTTR by 35%</strong></li>
+                        <li>Built <strong>Grafana dashboards</strong> integrated with Prometheus and CloudWatch for real-time visibility into microservices, MongoDB replica health, and Redis cache performance</li>
+                        <li>Implemented <strong>Redis ElastiCache</strong> for session management and caching, reducing database load by 40% and improving API response times by 50%</li>
+                        <li>Automated <strong>CI/CD pipelines</strong> using Jenkins and GitHub Actions with AWS ECR, enabling 3-stage environments (Build, Staging, Prod) for zero-downtime releases</li>
+                        <li>Provisioned infrastructure using <strong>Terraform</strong>, automating VPC, IAM, EKS, RDS, MongoDB clusters, and Redis ElastiCache across multiple environments</li>
+                        <li>Integrated <strong>SonarQube</strong> into CI/CD for automated code quality checks and vulnerability scanning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- NestIndia -->
+            <div class="exp-item">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">DevOps Engineer</div>
+                            <div class="exp-company">Nest India — Bengaluru, India</div>
+                        </div>
+                        <span class="exp-period">Nov 2024 – Jun 2025</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Architected end-to-end <strong>CI/CD pipelines</strong> using GitHub Actions, Jenkins, and AWS ECR, automating build, test, and deployment workflows</li>
+                        <li>Orchestrated containerized backend deployments on <strong>Amazon EKS</strong> using Helm and Ingress Controllers for high availability, scalability, and intelligent traffic routing</li>
+                        <li>Implemented <strong>GitOps-based delivery</strong> using ArgoCD integrated with AWS ECR and GitHub for automated rollouts with version control</li>
+                        <li>Configured <strong>Amazon RDS (PostgreSQL)</strong> with automated backups, performance tuning, and enhanced security</li>
+                        <li>Implemented monitoring using <strong>Prometheus and Grafana</strong> for Kubernetes workloads, enabling proactive issue detection</li>
+                        <li>Automated infrastructure provisioning using <strong>Terraform</strong>, reducing deployment time by 60% and eliminating configuration drift</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-section-title">Internships & Contract Roles</div>
+
+        <div class="exp-timeline intern-line">
+            <!-- Boostr Netwave -->
+            <div class="exp-item intern">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Cloud DevOps Engineer (Contract)</div>
+                            <div class="exp-company">Boostr Netwave — Remote, India</div>
+                        </div>
+                        <span class="exp-period">Aug 2024 – Nov 2024</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Deployed frontend on <strong>GCP Cloud Storage</strong> with Cloud CDN and Load Balancer for global content delivery</li>
+                        <li>Managed backend workloads on <strong>Google Kubernetes Engine (GKE)</strong> using Helm for efficient orchestration and scaling</li>
+                        <li>Automated CI/CD workflows using <strong>GitHub Actions</strong> for both frontend and backend deployments</li>
+                        <li>Provisioned GCP infrastructure using <strong>Terraform</strong> — Compute Engine, Cloud Storage, VPCs, and IAM policies</li>
+                        <li>Used <strong>GCP Cloud Monitoring and Logging</strong> for system health visibility and application metrics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SDE Hire & Xebia -->
+            <div class="exp-item intern">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">DevOps Intern & Trainee</div>
+                            <div class="exp-company">SDE Hire & Xebia — Hyderabad & Gurugram, India</div>
+                        </div>
+                        <span class="exp-period">Jan 2024 – Aug 2024</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Developed React web application with enhanced UX/UI, collaborating with cross-functional teams</li>
+                        <li>Designed <strong>CI/CD pipelines</strong> using Jenkins, Docker, and GitHub Actions for automated build, test, and deployment</li>
+                        <li>Deployed containerized applications on <strong>AWS ECS</strong> with Auto Scaling and Application Load Balancers</li>
+                        <li>Gained hands-on experience with containerization, version control, and DevOps best practices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="wrapper reveal">
+        <div class="section-label">04 — Work</div>
+        <h2 class="section-title">Key <em>Projects</em></h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-tag">DevOps · Jenkins · AWS ECS</div>
+                <div class="project-title">End-to-End CI/CD Pipeline</div>
+                <div class="project-desc">Built a robust CI/CD pipeline using Jenkins, Docker, and GitHub Actions to automate deployment to AWS ECS. Integrated SonarCloud for code quality, reducing deployment time by 25%. Designed monitoring using Amazon CloudWatch and SNS, reducing incident response time by 30%.</div>
+                <a href="https://github.com/kumarsuresh03/portfol.git" target="_blank" class="project-link">
+                    View on GitHub <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+            <div class="project-card">
+                <div class="project-tag">AWS · EC2 · VPC · Auto Scaling</div>
+                <div class="project-title">Scalable & Secure Web Hosting on AWS</div>
+                <div class="project-desc">Created a VPC across two AZs with private subnets and NAT Gateways. Launched an Auto Scaling Group and Load Balancer to distribute traffic across private EC2 instances running Apache Server. Implemented a Bastion Host for secure access to private instances.</div>
+                <a href="https://github.com/kumarsuresh03/AWS-project.gi" target="_blank" class="project-link">
+                    View on GitHub <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section id="education">
+    <div class="wrapper reveal">
+        <div class="section-label">05 — Background</div>
+        <h2 class="section-title">Education & <em>Certifications</em></h2>
+        <div class="edu-grid">
+            <div class="edu-card">
+                <div class="edu-card-title"><i data-lucide="graduation-cap"></i> Education</div>
+                <div class="edu-item">
+                    <div class="edu-degree">B.Tech — Computer Science & Engineering</div>
+                    <div class="edu-school">Lovely Professional University, Jalandhar, Punjab</div>
+                    <div class="edu-date">Aug 2021 – May 2025 · CGPA: 68%</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-degree">Intermediate (93.1%)</div>
+                    <div class="edu-school">Sri Chaitanya Junior College, Nizampet, Telangana</div>
+                </div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-card-title"><i data-lucide="award"></i> Certifications</div>
+                <ul class="cert-list">
+                    <li>AWS Academy Graduate — AWS Cloud Foundations</li>
+                    <li>IBM Cloud Essentials (EDX)</li>
+                    <li>Microsoft Azure Fundamentals</li>
+                    <li>DevOps (EDX)</li>
+                    <li>Python Programming (Udemy)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 N. Kumar Suresh · DevOps & Cloud Engineer · sureshnangina@gmail.com</p>
+</footer>
+
+<script>
+    lucide.createIcons();
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+</script>
 </body>
 </html>
