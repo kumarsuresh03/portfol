@@ -467,6 +467,163 @@ footer a { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--a
     .skills-grid { grid-template-columns: 1fr; }
     .hero-name { font-size: 3rem; }
 }
+
+/* ── BADGE PULSE DOT ── */
+.badge-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+}
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,229,160,0.5); }
+    50% { box-shadow: 0 0 0 6px rgba(0,229,160,0); }
+}
+
+/* ── TYPEWRITER ── */
+.hero-role-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+}
+.hero-role-label {
+    color: var(--muted);
+    font-weight: 400;
+    white-space: nowrap;
+}
+.hero-typewriter {
+    color: var(--accent);
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+}
+.cursor {
+    color: var(--accent);
+    font-weight: 300;
+    animation: blink 1s step-end infinite;
+    font-size: 1rem;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* ── NAME GLOW ── */
+.hero-name .ac {
+    color: var(--accent);
+    text-shadow: 0 0 40px rgba(0,229,160,0.25);
+}
+
+/* ── CTA BUTTONS ── */
+.hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.6rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: var(--accent);
+    color: #080b10;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    transition: all 0.2s;
+}
+.btn-primary:hover {
+    background: transparent;
+    color: var(--accent);
+}
+.btn-primary svg { width: 14px; height: 14px; }
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    background: transparent;
+    transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-ghost svg { width: 14px; height: 14px; }
+
+/* ── HERO GLOW BG ── */
+.hero-left { position: relative; }
+.hero-left::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,229,160,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ── STATS — add accent border to top stat ── */
+.stat-cell:first-child {
+    border-top: 2px solid var(--accent);
+}
+.stat-cell:nth-child(2) {
+    border-top: 2px solid rgba(91,106,247,0.6);
+}
+
+/* ── OPEN TO WORK CHIP ── */
+.open-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(0,229,160,0.08);
+    border: 1px solid rgba(0,229,160,0.2);
+    border-radius: 20px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+}
+
+
+/* ── EXP SUMMARY BAR ── */
+.exp-summary-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+.exp-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.45rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #8892a8;
+    letter-spacing: 0.02em;
+}
+.exp-chip svg { width: 13px; height: 13px; color: var(--accent); flex-shrink: 0; }
+
 </style>
 </head>
 <body>
@@ -488,15 +645,25 @@ footer a { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--a
 <div id="hero">
   <div class="hero-inner">
     <div class="hero-left">
-        <div class="hero-badge">Available for Opportunities</div>
-        <h1 class="hero-name">N. Kumar<br><span class="ac">Suresh</span></h1>
-        <p class="hero-tagline">DevOps Engineer &middot; Cloud Reliability Specialist &middot; Kubernetes &amp; Infrastructure Automation Expert</p>
-        <div class="hero-contacts">
-            <a href="mailto:sureshnangina@gmail.com"><i data-lucide="mail"></i> sureshnangina@gmail.com</a>
-            <a href="https://linkedin.com/in/n-suresh-kumar" target="_blank"><i data-lucide="linkedin"></i> LinkedIn</a>
-            <a href="https://github.com/kumarsuresh03" target="_blank"><i data-lucide="github"></i> GitHub</a>
-            <a href="tel:+919581972030"><i data-lucide="phone"></i> +91-9581972030</a>
-        </div>
+        <div class="hero-badge">
+                <span class="badge-dot"></span>Available for Opportunities
+            </div>
+            <h1 class="hero-name">N. Kumar<br><span class="ac">Suresh</span></h1>
+            <div class="hero-role-wrap">
+                <span class="hero-role-label">I specialize in</span>
+                <span class="hero-typewriter" id="typewriter"></span><span class="cursor">|</span>
+            </div>
+            <p class="hero-tagline">DevOps Engineer &middot; Cloud Reliability Specialist &middot; Kubernetes &amp; Infrastructure Automation Expert</p>
+            <div class="hero-contacts">
+                <a href="mailto:sureshnangina@gmail.com"><i data-lucide="mail"></i> sureshnangina@gmail.com</a>
+                <a href="https://linkedin.com/in/n-suresh-kumar" target="_blank"><i data-lucide="linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/kumarsuresh03" target="_blank"><i data-lucide="github"></i> GitHub</a>
+                <a href="tel:+919581972030"><i data-lucide="phone"></i> +91-9581972030</a>
+            </div>
+            <div class="hero-cta-row">
+                <a href="https://github.com/kumarsuresh03" target="_blank" class="btn-primary"><i data-lucide="download"></i> Download CV</a>
+                <a href="#experience" class="btn-ghost">View Experience <i data-lucide="arrow-down"></i></a>
+            </div>
     </div>
     <div class="hero-right">
         <div class="stats-grid">
@@ -590,7 +757,12 @@ footer a { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--a
         <div class="s-label">03 — Work History</div>
         <h2 class="s-title">Professional <em>Experience</em></h2>
 
-        <div class="timeline">
+        <div class="exp-summary-bar">
+                <div class="exp-chip"><i data-lucide="briefcase"></i> 2+ Years Total Experience</div>
+                <div class="exp-chip"><i data-lucide="map-pin"></i> India (Pune / Bengaluru / Remote)</div>
+                <div class="exp-chip"><i data-lucide="layers"></i> AWS · GCP · Kubernetes</div>
+            </div>
+            <div class="timeline">
             <div class="t-item">
                 <div class="t-dot"></div>
                 <div class="exp-card">
@@ -753,6 +925,23 @@ const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Typewriter
+const roles = ['Kubernetes (EKS/GKE)', 'Terraform IaC', 'CI/CD Automation', 'AIOps with Dynatrace', 'GitOps & ArgoCD', 'Cloud Cost Optimization'];
+let ri = 0, ci = 0, deleting = false;
+const tw = document.getElementById('typewriter');
+function type() {
+    const word = roles[ri];
+    if (!deleting) {
+        tw.textContent = word.slice(0, ++ci);
+        if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+        tw.textContent = word.slice(0, --ci);
+        if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+    }
+    setTimeout(type, deleting ? 45 : 80);
+}
+type();
 </script>
 </body>
 </html>
