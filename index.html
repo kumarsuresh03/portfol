@@ -27,6 +27,7 @@
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
+            padding-top: 60px; /* offset for fixed nav */
         }
 
         /* ── GRID BACKGROUND ── */
@@ -86,10 +87,9 @@
 
         /* ── HERO ── */
         #hero {
-            min-height: 100vh;
+            min-height: calc(100vh - 60px);
             display: flex;
             align-items: center;
-            padding-top: 60px;
         }
         .hero-inner {
             display: grid;
@@ -471,12 +471,16 @@
         /* ── SCROLL REVEAL (lightweight) ── */
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(24px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
         }
         .reveal.visible {
             opacity: 1;
             transform: none;
+        }
+        /* Fallback: if JS hasn't run yet or observer fails, still show content */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
@@ -791,17 +795,37 @@
 <script>
     lucide.createIcons();
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                observer.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => observer.observe(r));
+    // Scroll reveal — robust version
+    function activateReveals() {
+        const reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+            reveals.forEach(r => {
+                const rect = r.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    r.classList.add('visible');
+                } else {
+                    observer.observe(r);
+                }
+            });
+        } else {
+            reveals.forEach(r => r.classList.add('visible'));
+        }
+    }
+
+    if (document.readyState === 'complete') {
+        activateReveals();
+    } else {
+        window.addEventListener('load', activateReveals);
+    }
 </script>
 </body>
 </html>
